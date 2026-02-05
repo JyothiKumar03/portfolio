@@ -62,7 +62,7 @@ export default function BlogPage() {
             </p>
           </div>
           <p className="mt-2 text-sm text-muted-foreground">
-            Send a note and I'll prioritize it.
+            Send a note and I will prioritize it.
           </p>
           <div className="mt-4">
             <Button asChild>

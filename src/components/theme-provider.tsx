@@ -20,15 +20,20 @@ type ThemeContextValue = {
 const ThemeContext = createContext<ThemeContextValue | null>(null)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark")
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") {
+      return "dark"
+    }
 
-  useEffect(() => {
-    const stored = localStorage.getItem("theme") as Theme | null
-    const initial =
-      stored ??
-      (document.documentElement.classList.contains("dark") ? "dark" : "light")
-    setTheme(initial)
-  }, [])
+    const stored = localStorage.getItem("theme")
+    if (stored === "dark" || stored === "light") {
+      return stored
+    }
+
+    return document.documentElement.classList.contains("dark")
+      ? "dark"
+      : "light"
+  })
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", theme === "dark")

@@ -108,7 +108,7 @@ export default function ProjectsPage() {
             Want a custom GenAI system built end-to-end?
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
-            Reach out and I'll scope it fast, then ship with reliability in mind.
+            Reach out and I will scope it fast, then ship with reliability in mind.
           </p>
           <div className="mt-4">
             <Button asChild>
