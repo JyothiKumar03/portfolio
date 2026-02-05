@@ -9,7 +9,7 @@ import { SkillsSection } from "@/components/sections/skills-section"
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <main className="mx-auto max-w-6xl px-6 pb-16 md:px-10">
+      <main className="page-container pb-16">
         <HeroSection />
         <ExperienceSection />
         <ProjectsSection />

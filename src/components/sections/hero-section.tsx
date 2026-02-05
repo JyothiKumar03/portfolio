@@ -7,50 +7,46 @@ import { capabilities, highlights, site } from "@/data/content"
 
 export function HeroSection() {
   return (
-    <header className="relative pb-14 pt-20 md:pt-28">
-      <div className="absolute right-0 top-8">
+    <header className="relative pb-12 pt-16 md:pb-14 md:pt-22">
+      <div className="absolute right-0 top-4 md:top-6">
         <ThemeToggle />
       </div>
-      <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.4em] text-muted-foreground">
+      <div className="eyebrow inline-flex items-center gap-2">
         <span className="size-2 rounded-full bg-primary/70 shadow-[0_0_16px_var(--accent-glow)] animate-pulse" />
         Available for select builds
       </div>
       <div className="mt-5 flex flex-col gap-3">
-        <h1 className="text-5xl font-semibold tracking-tight md:text-7xl">
-          {site.name}
-        </h1>
-        <div className="inline-flex items-center gap-3 self-start rounded-full border border-primary/30 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-primary">
+        <h1 className="hero-title text-balance">{site.name}</h1>
+        <div className="eyebrow inline-flex items-center gap-3 self-start rounded-full border border-primary/30 bg-primary/10 px-4 py-2 font-semibold text-primary">
           <span className="size-2 rounded-full bg-primary shadow-[0_0_12px_var(--accent-glow)]" />
           JK AI TECHNOLOGIES
         </div>
       </div>
-      <p className="mt-3 text-xl text-muted-foreground md:text-2xl">
+      <p className="mt-3 text-base text-muted-foreground sm:text-lg">
         {site.title}
       </p>
-      <p className="mt-2 text-xs uppercase tracking-[0.4em] text-muted-foreground">
+      <p className="eyebrow mt-2">
         Sole Proprietorship - {site.tagline}
       </p>
-      <p className="mt-6 max-w-2xl text-lg text-foreground/80 text-balance">
+      <p className="mt-5 max-w-2xl text-base text-foreground/80 sm:text-lg text-balance">
         {site.description}
       </p>
-      <p className="mt-4 text-sm uppercase tracking-[0.3em] text-muted-foreground">
-        {site.focus}
-      </p>
-      <div className="mt-5 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+      <p className="eyebrow mt-4">{site.focus}</p>
+      <div className="mt-5 flex flex-wrap gap-2">
         {capabilities.map((item) => (
-          <span key={item} className="rounded-full border border-border/60 px-3 py-1">
+          <span key={item} className="pill">
             {item}
           </span>
         ))}
       </div>
       <div className="mt-8 h-px w-32 bg-gradient-to-r from-primary via-foreground/30 to-transparent" />
       <div className="mt-10 flex flex-wrap gap-4">
-        <Button size="lg" asChild>
+        <Button asChild>
           <Link href="/projects">
             See recent work <ArrowUpRight className="size-4" />
           </Link>
         </Button>
-        <Button size="lg" variant="outline" asChild>
+        <Button variant="outline" asChild>
           <a href={`mailto:${site.email}`}>Start a project</a>
         </Button>
       </div>
@@ -58,7 +54,7 @@ export function HeroSection() {
         {highlights.map((item) => (
           <div
             key={item.title}
-            className="surface-grid rounded-2xl border border-border/60 bg-card/80 p-5 shadow-sm backdrop-blur"
+            className="surface-grid surface-card backdrop-blur"
           >
             <p className="text-sm font-semibold text-foreground">{item.title}</p>
             <p className="mt-2 text-sm text-muted-foreground">

@@ -9,27 +9,23 @@ import { posts, site } from "@/data/content"
 export default function BlogPage() {
   return (
     <div className="min-h-screen">
-      <main className="mx-auto max-w-4xl px-6 pb-16 md:px-10">
-        <div className="relative pt-16 md:pt-20">
-          <div className="absolute right-0 top-6">
+      <main className="page-container-sm pb-16">
+        <div className="relative pt-14 md:pt-20">
+          <div className="absolute right-0 top-4 md:top-6">
             <ThemeToggle />
           </div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground transition hover:text-foreground"
+            className="eyebrow inline-flex items-center gap-2 transition hover:text-foreground"
           >
             <ArrowLeft className="size-3" /> Back home
           </Link>
           <div className="mt-6 flex items-center gap-3">
             <BookOpenText className="size-6 text-foreground" />
-            <p className="text-xs uppercase tracking-[0.4em] text-muted-foreground">
-              Writing
-            </p>
+            <p className="eyebrow">Writing</p>
           </div>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight md:text-5xl">
-            Notes on GenAI systems
-          </h1>
-          <p className="mt-3 text-base text-muted-foreground">
+          <h1 className="page-title mt-4 text-balance">Notes on GenAI systems</h1>
+          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
             Field notes, frameworks, and reliability lessons from shipping.
           </p>
         </div>
@@ -39,22 +35,20 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="group block rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-foreground/20"
+              className="surface-card group block transition hover:-translate-y-1 hover:border-foreground/20"
             >
               <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-                <h2 className="text-xl font-semibold text-foreground">
+                <h2 className="min-w-0 text-xl font-semibold text-foreground text-balance">
                   {post.title}
                 </h2>
-                <span className="rounded-full border border-border/60 px-3 py-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                  {post.status}
-                </span>
+                <span className="pill">{post.status}</span>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">{post.summary}</p>
             </Link>
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm">
+        <div className="surface-card mt-12">
           <div className="flex items-center gap-3">
             <Mail className="size-5 text-foreground" />
             <p className="text-base font-semibold text-foreground">

@@ -18,11 +18,11 @@ export function Section({
   children,
 }: SectionProps) {
   return (
-    <section id={id} className="border-t border-border/60 py-16 md:py-20">
-      <div className="flex items-start gap-6 md:gap-8">
-        <div className="flex w-20 shrink-0 items-start justify-center md:w-24">
+    <section id={id} className="section-shell">
+      <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-8">
+        <div className="flex w-14 shrink-0 items-start justify-start md:w-24 md:justify-center">
           {icon ? (
-            <div className="flex size-16 items-center justify-center rounded-2xl border border-border/60 bg-card/80 text-foreground shadow-sm backdrop-blur md:size-20">
+            <div className="flex size-12 items-center justify-center rounded-2xl border border-border/60 bg-card/80 text-foreground shadow-sm backdrop-blur sm:size-14 md:size-16">
               {icon}
             </div>
           ) : null}
@@ -30,19 +30,13 @@ export function Section({
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-baseline gap-3">
             {index ? (
-              <span className="text-xs font-mono uppercase tracking-[0.4em] text-muted-foreground">
-                {index}
-              </span>
+              <span className="eyebrow-mono">{index}</span>
             ) : null}
             {subtitle ? (
-              <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                {subtitle}
-              </span>
+              <span className="eyebrow">{subtitle}</span>
             ) : null}
           </div>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-            {title}
-          </h2>
+          <h2 className="section-title">{title}</h2>
           <div className="mt-6 space-y-6">{children}</div>
         </div>
       </div>

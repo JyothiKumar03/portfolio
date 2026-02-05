@@ -10,23 +10,20 @@ export function SkillsSection() {
       index="03"
       title="Skills"
       subtitle="Toolbox"
-      icon={<Wrench className="size-12" />}
+      icon={<Wrench className="size-10 sm:size-12" />}
     >
       <div className="grid gap-6 md:grid-cols-2">
         {skills.map((group) => (
           <div
             key={group.category}
-            className="rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm"
+            className="surface-card"
           >
             <h3 className="text-base font-semibold text-foreground">
               {group.category}
             </h3>
             <div className="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-border/60 px-3 py-1 text-xs text-muted-foreground"
-                >
+                <span key={item} className="chip">
                   {item}
                 </span>
               ))}
@@ -34,7 +31,7 @@ export function SkillsSection() {
           </div>
         ))}
       </div>
-      <div className="rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm">
+      <div className="surface-card">
         <p className="text-sm font-semibold text-foreground">
           My 5-tier GenAI build approach
         </p>

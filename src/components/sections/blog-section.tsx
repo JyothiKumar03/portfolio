@@ -14,22 +14,20 @@ export function BlogSection() {
       index="04"
       title="Blog"
       subtitle="Writing"
-      icon={<BookOpenText className="size-12" />}
+      icon={<BookOpenText className="size-10 sm:size-12" />}
     >
       <div className="space-y-4">
         {featuredPosts.map((post) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="group flex flex-col gap-2 rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-foreground/20"
+            className="surface-card group flex flex-col gap-2 transition hover:-translate-y-1 hover:border-foreground/20"
           >
-            <div className="flex items-center justify-between">
-              <h3 className="text-base font-semibold text-foreground">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <h3 className="min-w-0 text-base font-semibold text-foreground text-balance">
                 {post.title}
               </h3>
-              <span className="rounded-full border border-border/60 px-3 py-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                {post.status}
-              </span>
+              <span className="pill">{post.status}</span>
             </div>
             <p className="text-sm text-muted-foreground">{post.summary}</p>
           </Link>

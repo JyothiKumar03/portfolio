@@ -14,17 +14,17 @@ export function ProjectsSection() {
       index="02"
       title="Recent work"
       subtitle="Selected builds"
-      icon={<Rocket className="size-12" />}
+      icon={<Rocket className="size-10 sm:size-12" />}
     >
       <div className="grid gap-6 md:grid-cols-2">
         {featuredProjects.map((project) => (
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
-            className="group rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-foreground/20"
+            className="surface-card group transition hover:-translate-y-1 hover:border-foreground/20"
           >
-            <div className="flex items-start justify-between">
-              <h3 className="text-lg font-semibold text-foreground">
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="min-w-0 text-lg font-semibold text-foreground text-balance">
                 {project.name}
               </h3>
               <ArrowUpRight className="size-4 text-muted-foreground transition group-hover:text-foreground" />
@@ -32,12 +32,9 @@ export function ProjectsSection() {
             <p className="mt-3 text-sm text-muted-foreground">
               {project.summary}
             </p>
-            <div className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="mt-4 flex flex-wrap gap-2">
               {project.highlights.slice(0, 2).map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-border/60 px-3 py-1"
-                >
+                <span key={tag} className="pill">
                   {tag}
                 </span>
               ))}

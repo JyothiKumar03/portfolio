@@ -8,7 +8,7 @@ export function Panel({ className, ...props }: PanelProps) {
   return (
     <div
       className={cn(
-        "rounded-2xl border border-border/60 bg-card/80 p-6 shadow-sm",
+        "surface-card",
         className
       )}
       {...props}

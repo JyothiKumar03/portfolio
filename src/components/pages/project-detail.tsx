@@ -14,29 +14,24 @@ type ProjectDetailProps = {
 export function ProjectDetail({ project }: ProjectDetailProps) {
   return (
     <div className="min-h-screen">
-      <main className="mx-auto max-w-4xl px-6 pb-16 md:px-10">
-        <div className="relative pt-16 md:pt-20">
-          <div className="absolute right-0 top-6">
+      <main className="page-container-sm pb-16">
+        <div className="relative pt-14 md:pt-20">
+          <div className="absolute right-0 top-4 md:top-6">
             <ThemeToggle />
           </div>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted-foreground transition hover:text-foreground"
+            className="eyebrow inline-flex items-center gap-2 transition hover:text-foreground"
           >
             <ArrowLeft className="size-3" /> Back to projects
           </Link>
-          <h1 className="mt-6 text-4xl font-semibold tracking-tight md:text-5xl">
-            {project.name}
-          </h1>
-          <p className="mt-3 text-base text-muted-foreground">
+          <h1 className="page-title mt-6 text-balance">{project.name}</h1>
+          <p className="mt-3 text-sm text-muted-foreground sm:text-base">
             {project.summary}
           </p>
-          <div className="mt-6 flex flex-wrap gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+          <div className="mt-6 flex flex-wrap gap-2">
             {project.highlights.map((highlight) => (
-              <span
-                key={highlight}
-                className="rounded-full border border-border/60 px-3 py-1"
-              >
+              <span key={highlight} className="pill">
                 {highlight}
               </span>
             ))}
@@ -55,41 +50,31 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         <Panel className="mt-12">
           <div className="grid gap-6 md:grid-cols-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Problem
-              </p>
+              <p className="eyebrow">Problem</p>
               <p className="mt-2 text-sm text-foreground">{project.problem}</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Approach
-              </p>
+              <p className="eyebrow">Approach</p>
               <p className="mt-2 text-sm text-foreground">
                 {project.approach}
               </p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Value
-              </p>
+              <p className="eyebrow">Value</p>
               <p className="mt-2 text-sm text-foreground">{project.value}</p>
             </div>
           </div>
         </Panel>
 
         <Panel className="mt-8">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-            Snapshot
-          </p>
+          <p className="eyebrow">Snapshot</p>
           <p className="mt-3 text-sm text-foreground">{project.snapshot}</p>
         </Panel>
 
         <Panel className="mt-8">
           <div className="grid gap-6 md:grid-cols-3">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Stack
-              </p>
+              <p className="eyebrow">Stack</p>
               <ul className="mt-3 list-disc space-y-2 pl-4 text-sm text-foreground">
                 {project.stack.map((item) => (
                   <li key={item}>{item}</li>
@@ -97,9 +82,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </ul>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Role
-              </p>
+              <p className="eyebrow">Role</p>
               <ul className="mt-3 list-disc space-y-2 pl-4 text-sm text-foreground">
                 {project.role.map((item) => (
                   <li key={item}>{item}</li>
@@ -107,9 +90,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </ul>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Outcomes
-              </p>
+              <p className="eyebrow">Outcomes</p>
               <ul className="mt-3 list-disc space-y-2 pl-4 text-sm text-foreground">
                 {project.outcomes.map((item) => (
                   <li key={item}>{item}</li>
@@ -122,9 +103,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         <Panel className="mt-8">
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Build notes
-              </p>
+              <p className="eyebrow">Build notes</p>
               <ul className="mt-3 list-disc space-y-2 pl-4 text-sm text-foreground">
                 {project.buildNotes.map((item) => (
                   <li key={item}>{item}</li>
@@ -132,9 +111,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               </ul>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
-                Roadmap
-              </p>
+              <p className="eyebrow">Roadmap</p>
               <ul className="mt-3 list-disc space-y-2 pl-4 text-sm text-foreground">
                 {project.roadmap.map((item) => (
                   <li key={item}>{item}</li>
@@ -145,7 +122,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </Panel>
 
         <Panel className="mt-12">
-          <p className="text-lg font-semibold text-foreground">
+          <p className="text-base font-semibold text-foreground sm:text-lg">
             Want something similar built for your product?
           </p>
           <p className="mt-2 text-sm text-muted-foreground">
