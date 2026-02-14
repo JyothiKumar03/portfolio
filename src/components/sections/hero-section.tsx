@@ -1,15 +1,63 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react"
 
 import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { capabilities, highlights, site } from "@/data/content"
 
 export function HeroSection() {
+  const topControlBaseClasses =
+    "rounded-full border-border/70 bg-background/70 text-foreground shadow-sm backdrop-blur hover:bg-background"
+  const socialHoverClasses =
+    "hover:text-amber-600 hover:border-amber-400/70 dark:hover:text-amber-300 dark:hover:border-amber-300/50"
+
+  const socialLinks = [
+    {
+      label: "LinkedIn",
+      href: site.social.linkedin,
+      icon: Linkedin,
+    },
+    {
+      label: "Twitter",
+      href: site.social.twitter,
+      icon: Twitter,
+    },
+    {
+      label: "GitHub",
+      href: site.social.github,
+      icon: Github,
+    },
+  ].filter((item) => item.href)
+
   return (
     <header className="relative pb-12 pt-16 md:pb-14 md:pt-22">
-      <div className="absolute right-0 top-4 md:top-6">
-        <ThemeToggle />
+      <div className="absolute right-0 top-4 flex items-center gap-2 md:top-6">
+        {socialLinks.length ? (
+          <div className="flex items-center gap-2">
+            {socialLinks.map((item) => {
+              const Icon = item.icon
+              return (
+                <Button
+                  key={item.label}
+                  variant="outline"
+                  size="icon"
+                  className={`${topControlBaseClasses} ${socialHoverClasses}`}
+                  asChild
+                >
+                  <a
+                    href={item.href}
+                    aria-label={item.label}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                </Button>
+              )
+            })}
+          </div>
+        ) : null}
+        <ThemeToggle className={topControlBaseClasses} />
       </div>
       <div className="eyebrow inline-flex items-center gap-2">
         <span className="size-2 rounded-full bg-primary/70 shadow-[0_0_16px_var(--accent-glow)] animate-pulse" />

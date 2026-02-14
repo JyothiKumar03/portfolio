@@ -23,11 +23,13 @@ export function BlogSection() {
             href={`/blog/${post.slug}`}
             className="surface-card group flex flex-col gap-2 transition hover:-translate-y-1 hover:border-foreground/20"
           >
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-2">
               <h3 className="min-w-0 text-base font-semibold text-foreground text-balance">
                 {post.title}
               </h3>
-              <span className="pill">{post.status}</span>
+              <p className="eyebrow">
+                {post.publishedAt} · {post.readTime}
+              </p>
             </div>
             <p className="text-sm text-muted-foreground">{post.summary}</p>
           </Link>

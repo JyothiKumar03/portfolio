@@ -26,7 +26,7 @@ export default function BlogPage() {
           </div>
           <h1 className="page-title mt-4 text-balance">Notes on GenAI systems</h1>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            Field notes, frameworks, and reliability lessons from shipping.
+            Field notes from shipping, updated with 2025-2026 ecosystem signals.
           </p>
         </div>
 
@@ -37,11 +37,13 @@ export default function BlogPage() {
               href={`/blog/${post.slug}`}
               className="surface-card group block transition hover:-translate-y-1 hover:border-foreground/20"
             >
-              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+              <div className="flex flex-col gap-2">
                 <h2 className="min-w-0 text-xl font-semibold text-foreground text-balance">
                   {post.title}
                 </h2>
-                <span className="pill">{post.status}</span>
+                <p className="eyebrow">
+                  {post.publishedAt} · {post.readTime}
+                </p>
               </div>
               <p className="mt-3 text-sm text-muted-foreground">{post.summary}</p>
             </Link>
