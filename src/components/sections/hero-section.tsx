@@ -8,8 +8,8 @@ import { capabilities, highlights, site } from "@/data/content"
 export function HeroSection() {
   const topControlBaseClasses =
     "rounded-full border-border/70 bg-background/70 text-foreground shadow-sm backdrop-blur hover:bg-background"
-  const socialHoverClasses =
-    "hover:text-amber-600 hover:border-amber-400/70 dark:hover:text-amber-300 dark:hover:border-amber-300/50"
+  const socialControlClasses =
+    "text-muted-foreground hover:text-foreground hover:border-foreground/40"
 
   const socialLinks = [
     {
@@ -41,7 +41,7 @@ export function HeroSection() {
                   key={item.label}
                   variant="outline"
                   size="icon"
-                  className={`${topControlBaseClasses} ${socialHoverClasses}`}
+                  className={`${topControlBaseClasses} ${socialControlClasses}`}
                   asChild
                 >
                   <a
