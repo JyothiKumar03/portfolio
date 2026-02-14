@@ -20,7 +20,7 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
       onClick={toggle}
       aria-label="Toggle theme"
       className={cn(
-        "rounded-full border-border/70 bg-background/70 text-foreground shadow-sm backdrop-blur hover:bg-background",
+        "rounded-full border-border/70 bg-background/70 text-foreground shadow-sm backdrop-blur hover:bg-background hover:text-foreground hover:border-foreground/40",
         className
       )}
     >
