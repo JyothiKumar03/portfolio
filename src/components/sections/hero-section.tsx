@@ -65,16 +65,12 @@ export function HeroSection() {
       </div>
       <div className="mt-5 flex flex-col gap-3">
         <h1 className="hero-title text-balance">{site.name}</h1>
-        <div className="eyebrow inline-flex items-center gap-3 self-start rounded-full border border-primary/30 bg-primary/10 px-4 py-2 font-semibold text-primary">
-          <span className="size-2 rounded-full bg-primary shadow-[0_0_12px_var(--accent-glow)]" />
-          JK AI TECHNOLOGIES
-        </div>
       </div>
       <p className="mt-3 text-base text-muted-foreground sm:text-lg">
         {site.title}
       </p>
       <p className="eyebrow mt-2">
-        Sole Proprietorship - {site.tagline}
+        {site.tagline}
       </p>
       <p className="mt-5 max-w-2xl text-base text-foreground/80 sm:text-lg text-balance">
         {site.description}
