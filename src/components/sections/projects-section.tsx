@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { projects } from "@/data/content"
 
 export function ProjectsSection() {
-  const featuredProjects = projects.slice(0, 3)
+  const featuredSlugs = ["unified-llm-wrapper", "prescription-ai-webapp", "research-paper-judge", "dev-debugger"]
+  const featuredProjects = featuredSlugs.map((slug) => projects.find((p) => p.slug === slug)!)
 
   return (
     <Section

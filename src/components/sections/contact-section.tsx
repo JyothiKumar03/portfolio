@@ -16,13 +16,13 @@ export function ContactSection() {
     >
       <div className="flex flex-col gap-6 md:flex-row">
         <Panel className="md:flex-[1.2]">
-          <p className="eyebrow">Build together</p>
+          <p className="eyebrow">Let&apos;s explore ideas</p>
           <p className="mt-3 text-base font-semibold text-foreground sm:text-lg">
-            I design roadmaps, run reviews, and ship full-stack + AI systems
-            end-to-end.
+            Always up for interesting problems, early-stage ideas, and
+            collaborations worth building.
           </p>
           <p className="mt-3 text-sm text-muted-foreground">
-            Clear scope, fast iteration, and production-ready reliability.
+            Whether it&apos;s a half-formed idea or something almost ready to ship — I&apos;m happy to think through it together.
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
             {capabilities.map((item) => (
@@ -33,11 +33,11 @@ export function ContactSection() {
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Button asChild>
-              <a href={`mailto:${site.email}`}>Book a call</a>
+              <a href={`mailto:${site.email}`}>Reach out</a>
             </Button>
             <Button variant="outline" asChild>
-              <a href={`mailto:${site.email}?subject=Project%20inquiry`}>
-                Start a project
+              <a href={`mailto:${site.email}?subject=Let's%20talk`}>
+                Share an idea
               </a>
             </Button>
           </div>

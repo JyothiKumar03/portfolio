@@ -121,6 +121,79 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "research-paper-judge",
+    name: "Research Paper Judge",
+    summary:
+      "AI-powered system that evaluates and scores research papers using LLM-based judging criteria.",
+    highlights: [
+      "LLM-based evaluation",
+      "Structured scoring rubrics",
+      "Automated review pipeline",
+    ],
+    problem:
+      "Manual research paper review is slow, inconsistent, and doesn't scale.",
+    approach:
+      "Built an agentic pipeline that applies structured LLM judging with rubric-based scoring.",
+    value:
+      "Faster, consistent research evaluation with traceable scoring rationale.",
+    snapshot:
+      "An automated judge that scores papers against defined criteria with explainable LLM reasoning.",
+    stack: ["Python", "LLM APIs", "Prompt Engineering", "Evaluation"],
+    role: ["System design", "LLM integration", "Evaluation pipeline"],
+    outcomes: [
+      "Structured scoring output",
+      "Scalable review pipeline",
+      "Explainable judgements",
+    ],
+    buildNotes: [
+      "Rubric-driven prompts for consistent evaluation.",
+      "Structured output parsing for score extraction.",
+      "Evaluation loop with feedback aggregation.",
+    ],
+    roadmap: [
+      "Multi-paper batch processing.",
+      "Comparison across submission sets.",
+      "Fine-tuned judge model.",
+    ],
+    link: "https://github.com/JyothiKumar03/research-paper-judge",
+  },
+  {
+    slug: "dev-debugger",
+    name: "Dev Debugger",
+    summary:
+      "AI-assisted debugging tool that analyzes code errors and suggests targeted fixes.",
+    highlights: [
+      "AI-powered error analysis",
+      "Context-aware suggestions",
+      "Developer workflow integration",
+    ],
+    problem:
+      "Debugging is slow and context-switching between docs and code breaks flow.",
+    approach:
+      "Built an LLM-backed tool that ingests error context and returns structured debug suggestions.",
+    value: "Faster debugging cycles and reduced context-switching for devs.",
+    snapshot:
+      "A developer-focused tool that turns error traces into actionable fix suggestions.",
+    stack: ["TypeScript", "Node.js", "LLM APIs", "Developer Tooling"],
+    role: ["Product design", "LLM integration", "DX engineering"],
+    outcomes: [
+      "Faster error resolution",
+      "Context-aware suggestions",
+      "Improved dev flow",
+    ],
+    buildNotes: [
+      "Error context extraction and structured prompting.",
+      "Diff-aware suggestions scoped to relevant code.",
+      "Lightweight CLI and API interface.",
+    ],
+    roadmap: [
+      "IDE plugin integration.",
+      "Multi-file context awareness.",
+      "Error pattern library.",
+    ],
+    link: "https://github.com/JyothiKumar03/dev-debugger",
+  },
+  {
     slug: "unified-llm-wrapper",
     name: "Unified LLM Wrapper",
     summary:
@@ -635,28 +708,28 @@ export function getPostBySlug(slug: string) {
 
 export const tiers = [
   {
-    title: "Provider + orchestration layer",
+    title: "Provider + orchestration",
     description:
-      "Switch/route across providers with retries, fallbacks, and consistent interfaces.",
+      "Route across OpenAI, Anthropic, Gemini, and DeepSeek with unified interfaces, automatic retries, and graceful fallbacks — no glue code, no provider lock-in.",
   },
   {
     title: "Prompting + context engineering",
     description:
-      "Structured prompts, context shaping, and failure-mode mitigation.",
+      "Shape what the model sees: structured payloads, trust tiers, freshness policies, and constraint schemas that make output predictable before touching a single prompt word.",
   },
   {
     title: "RAG + tool use",
     description:
-      "Retrieval-augmented workflows with disciplined context management.",
+      "Precision retrieval with intent-aware queries, metadata filtering, and source-grounded output — tools with typed contracts and bounded retries so failures stay explicit.",
   },
   {
     title: "Fine-tuning + adaptation",
     description:
-      "Push accuracy and consistency beyond prompting and retrieval.",
+      "When prompting and retrieval hit their ceiling, fine-tune on domain-specific data to push accuracy, consistency, and latency beyond what off-the-shelf models can deliver.",
   },
   {
     title: "Agentic systems + evaluation",
     description:
-      "Long-running agents with measurable performance via eval frameworks.",
+      "Long-running agents with structured plans, 500+ tool call budgets, and eval frameworks that measure real outcomes — not just whether the output looks good.",
   },
 ] as const;

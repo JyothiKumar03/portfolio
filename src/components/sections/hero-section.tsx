@@ -1,67 +1,15 @@
 import Link from "next/link"
-import { ArrowUpRight, Github, Linkedin, Twitter } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { capabilities, highlights, site } from "@/data/content"
 
 export function HeroSection() {
-  const topControlBaseClasses =
-    "rounded-full border-border/70 bg-background/70 text-foreground shadow-sm backdrop-blur hover:bg-background"
-  const socialControlClasses =
-    "text-muted-foreground hover:text-foreground hover:border-foreground/40"
-
-  const socialLinks = [
-    {
-      label: "LinkedIn",
-      href: site.social.linkedin,
-      icon: Linkedin,
-    },
-    {
-      label: "Twitter",
-      href: site.social.twitter,
-      icon: Twitter,
-    },
-    {
-      label: "GitHub",
-      href: site.social.github,
-      icon: Github,
-    },
-  ].filter((item) => item.href)
-
   return (
-    <header className="relative pb-12 pt-16 md:pb-14 md:pt-22">
-      <div className="absolute right-0 top-4 flex items-center gap-2 md:top-6">
-        {socialLinks.length ? (
-          <div className="flex items-center gap-2">
-            {socialLinks.map((item) => {
-              const Icon = item.icon
-              return (
-                <Button
-                  key={item.label}
-                  variant="outline"
-                  size="icon"
-                  className={`${topControlBaseClasses} ${socialControlClasses}`}
-                  asChild
-                >
-                  <a
-                    href={item.href}
-                    aria-label={item.label}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Icon className="size-4" />
-                  </a>
-                </Button>
-              )
-            })}
-          </div>
-        ) : null}
-        <ThemeToggle className={topControlBaseClasses} />
-      </div>
+    <header className="relative pb-12 pt-8 md:pb-14 md:pt-12">
       <div className="eyebrow inline-flex items-center gap-2">
         <span className="size-2 rounded-full bg-primary/70 shadow-[0_0_16px_var(--accent-glow)] animate-pulse" />
-        Available for select builds
+        Open to ideas &amp; collaboration
       </div>
       <div className="mt-5 flex flex-col gap-3">
         <h1 className="hero-title text-balance">{site.name}</h1>
@@ -69,9 +17,7 @@ export function HeroSection() {
       <p className="mt-3 text-base text-muted-foreground sm:text-lg">
         {site.title}
       </p>
-      <p className="eyebrow mt-2">
-        {site.tagline}
-      </p>
+      <p className="eyebrow mt-2">{site.tagline}</p>
       <p className="mt-5 max-w-2xl text-base text-foreground/80 sm:text-lg text-balance">
         {site.description}
       </p>
@@ -91,7 +37,7 @@ export function HeroSection() {
           </Link>
         </Button>
         <Button variant="outline" asChild>
-          <a href={`mailto:${site.email}`}>Start a project</a>
+          <a href={`mailto:${site.email}`}>Let&apos;s connect</a>
         </Button>
       </div>
       <div className="mt-12 grid gap-4 md:grid-cols-2">
