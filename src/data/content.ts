@@ -2,15 +2,12 @@ export const site = {
   name: "Jyothi Kumar Dummala",
   title: "Software Engineer / AI Engineer",
   description:
-    "I build production-grade GenAI products end-to-end - provider orchestration, prompting + context engineering, RAG, fine-tuning, agentic workflows, and evaluation frameworks.",
+    `I build production-grade GenAI products end-to-end - provider orchestration, prompting + context engineering, RAG, fine-tuning, agentic workflows, and evaluation frameworks. \n I love to understand the domain, map the problem to a reliable solution and scale it!`,
+  interest:`I have experience in shipping agents to sales, market research and GTM domains. Where I map the problems, ship agents (diff architecture agents) and then deliver the solution!`,
   focus: "Ownership, collaboration, and measurable business outcomes.",
-  tagline: "Staying in India, building for the world.",
+  tagline: "Building agents that close deals, not just demo well. Shipping in Research, Sales, GTM domains.",
   email: "jyothikumardummala@gmail.com",
-  location: "India (Open to Remote / Relocate)",
-  company: {
-    name: "JK AI TECHNOLOGIES",
-    location: "Hyderabad",
-  },
+  location: "Hyderabad, India (Open to Remote / Relocate)",
   social: {
     linkedin: "https://www.linkedin.com/in/jyothikumard/",
     github: "https://github.com/JyothiKumar03",
@@ -441,82 +438,73 @@ export const posts: Post[] = [
     publishedAt: "February 14, 2026",
     readTime: "8 min read",
     status: "Published",
-    body: `Most GenAI systems do not fail because the model is "bad." They fail because real production traffic is messy. A provider slows down, one prompt edit changes output shape, a tool returns partial data, and suddenly your UI is showing answers that look confident but are wrong.
+    body: `Here's something that surprised me early on: most GenAI systems don't fail because the model is bad. They fail because real production traffic is messy. A provider slows down, one prompt edit shifts the output shape, a tool returns partial data, and suddenly your UI is showing answers that look confident but are completely wrong.
 
-After seeing this repeatedly, I stopped optimizing for demo quality. I started optimizing for failure handling.
+After hitting this wall a few times, I stopped optimizing for demo quality. That's the wrong target. I started optimizing for what happens when things go sideways.
 
-## What changed in my approach
+## What actually changed in how I build
 
-I treat every model call like an API boundary I do not control.
+I treat every model call the way I'd treat an external API I don't own or control.
 
-- Output must match a strict schema.
-- Invalid output must fail fast.
-- Every failure path must be explicit.
+- Output has to match a strict schema.
+- If it doesn't, fail fast. Don't guess.
+- Every failure path needs to be explicit, not tucked away in a catch block.
 
-If output parsing fails, that is not a minor warning. That is a failed request.
+If output parsing fails, that's not a minor warning you log and move on from. That's a failed request. Full stop.
 
-## Tool calls are the real reliability problem
+## Tool calls are where reliability actually breaks down
 
-Once tools enter the loop, the system becomes much harder. Most serious incidents I have seen came from tool behavior, not from prompt wording.
+Once tools enter the picture, everything gets harder. The serious incidents I've seen in production almost never came from prompt wording. They came from tool behavior that nobody fully thought through.
 
-My baseline rules are simple:
+My baseline rules for every tool:
 
-- Every tool has typed input and typed output.
-- Timeouts and bounded retries are mandatory.
-- Partial data is labeled as unknown, not interpreted as truth.
-- The model cannot silently continue after tool failure.
+- Typed input, typed output. No loose objects.
+- Timeouts and bounded retries are non-negotiable.
+- Partial data gets labeled as unknown, not interpreted as truth.
+- The model can't silently continue after a tool failure.
 
-This single rule cuts a lot of invisible bugs: unknown is never treated as known.
+That last rule alone removes a surprising number of invisible bugs. Unknown never gets treated as known.
 
-## Three runtime paths I actually use
+## Three runtime paths I actually route through
 
-For each request, I force one of these paths:
+For every request, I force one of these three paths explicitly:
 
-1. **Pass**
-   - Schema is valid
-   - Evidence is sufficient
-   - Tool results are complete enough
+1. **Pass** when the schema is valid, evidence is sufficient, and tool results are complete enough to act on.
 
-2. **Retry**
-   - Narrow context
-   - Tighten constraints
-   - Retry once or twice, then stop
+2. **Retry** when context is too narrow or constraints are too loose. Retry once or twice with tighter parameters, then stop. No infinite loops.
 
-3. **Fallback**
-   - Switch to a safer model or simpler path
-   - Ask a clarification question when needed
-   - Escalate to human review for high-risk cases
+3. **Fallback** when retrying isn't enough. Switch to a safer model, ask a clarifying question, or escalate to a human for anything high-stakes.
 
-The goal is not to avoid failure. The goal is to fail in a controlled way.
+The goal isn't to avoid failure. It's to fail in a way you planned for.
 
-## Traceability is mandatory
+## You can't trust a system you can't trace
 
-When something goes wrong, I need to answer "why" quickly. So every user-visible answer is tied to:
+When something goes wrong, I need to figure out why in a few minutes, not a few hours. So every user-visible answer in my systems gets tied to:
 
-- prompt version
-- model version
-- retrieved context IDs
-- tool outputs
-- validation result
-- final decision path
+- which prompt version ran
+- which model version ran
+- which context chunks were retrieved
+- what the tools actually returned
+- what the validation result was
+- which decision path was taken
 
-If I cannot explain an answer in a few minutes, I do not trust the system.
+If I can't reconstruct an answer quickly, I don't trust the system. And neither should you.
 
-## My release checklist before shipping
+## What I check before shipping any change
 
-Before changing prompts, models, or tool behavior:
+Before touching prompts, models, or tool behavior:
 
-1. Run offline evals on known hard cases.
-2. Run shadow traffic with no user exposure.
-3. Roll out as a small canary.
-4. Keep kill switches ready per model and tool.
-5. Keep rollback immediate and versioned.
+1. Run offline evals on the cases I know are hard.
+2. Run shadow traffic with zero user exposure.
+3. Roll out to a small canary slice first.
+4. Keep kill switches ready at the model and tool level.
+5. Make rollback immediate and versioned.
 
-Nothing here is flashy, but this is what keeps systems stable while still shipping fast.
+None of this is glamorous. It's just what keeps systems stable while you're still shipping at a real pace.
 
-## Final note
+## The thing most people miss
 
-Reliability is part of product design, not a cleanup step after launch. If your system has clear contracts, strong tool discipline, and traceable decisions, you can move fast without burning user trust.`,
+Reliability isn't something you bolt on after the demo goes well. It's part of product design from day one. Clear contracts, strict tool discipline, and traceable decisions aren't slowdowns. They're what lets you move fast without burning user trust every other week.`,
   },
   {
     slug: "context-engineering-playbook",
@@ -526,15 +514,15 @@ Reliability is part of product design, not a cleanup step after launch. If your 
     publishedAt: "February 14, 2026",
     readTime: "7 min read",
     status: "Published",
-    body: `Most prompt quality issues are actually context quality issues.
+    body: `Almost every prompt quality problem I've run into is actually a context quality problem in disguise.
 
-When a model output feels weak or unstable, I do not start by rewriting prompts. I first inspect the context payload. In my experience, output quality is mostly determined by what you send, how you structure it, and how clearly you mark trust levels.
+When a model output feels weak or unpredictable, my first instinct isn't to rewrite the prompt. It's to look at what the model is actually seeing. In my experience, output quality is mostly decided before the model even starts generating. It comes down to what you send, how you organize it, and how clearly you signal what should be trusted.
 
-I treat context as an interface.
+Context is an interface. Treat it like one.
 
-## How I structure context
+## How I structure what the model sees
 
-I split payloads into clear blocks:
+I split the context payload into distinct blocks, always in this order:
 
 1. instructions
 2. hard constraints
@@ -542,80 +530,60 @@ I split payloads into clear blocks:
 4. retrieved evidence
 5. tool outputs
 
-This makes debugging practical. If one block is bad, I can fix that block instead of rewriting everything.
+This makes debugging way more practical. If something's wrong, I can isolate which block is the problem instead of staring at one giant prompt and guessing.
 
-## Trust tiers I use
+## Not all data should carry equal weight
 
-Not all data should have equal authority. I use a simple hierarchy:
+This one took me a while to really internalize. I use a simple four-tier hierarchy:
 
 - **Tier A:** system-of-record outputs and approved policies
 - **Tier B:** retrieved documents that might be stale
 - **Tier C:** user-provided data
 - **Tier D:** model assumptions
 
-Rules are strict:
+The rules that flow from this are strict. Tier A wins any conflict. Tier B has to be attributable. Tier C is input, not verified fact. Tier D is never treated as evidence for anything.
 
-- Tier A wins conflicts.
-- Tier B must be attributable.
-- Tier C is input, not fact.
-- Tier D is never evidence.
+Without something like this, models blend everything into one confident-sounding answer where you can't tell what was real and what was assumed.
 
-This prevents the model from blending everything into one unreliable answer.
+## Wide retrieval usually isn't the answer
 
-## Retrieval strategy that works
+There's a temptation to retrieve as much as possible and let the model sort it out. In my experience, that just adds noise. I default to narrow, precise retrieval and only open it up when the task genuinely needs breadth.
 
-Wide retrieval feels smart but often adds noise. I default to narrow retrieval and open it only when the task needs it.
+The specifics: intent-aware queries, metadata and recency filters, controlled chunk sizes, no duplicate chunks, and k that's tuned to the actual task. For decision-heavy flows, I'll always pick precision over recall. For synthesis tasks, I'll allow more breadth but I still require source-grounded output.
 
-- Use intent-aware queries.
-- Filter by metadata and recency.
-- Keep chunk size controlled.
-- Remove duplicate chunks.
-- Keep k task-specific.
+## "Be concise" is not a constraint
 
-For decision-heavy flows, I prefer precision over recall. For synthesis tasks, I allow broader recall but still enforce source-grounded output.
+Soft instruction sentences don't give you stable behavior. A strict output schema does.
 
-## Constraints should be machine-readable
-
-A sentence like "be concise" is weak control. A strict output schema is strong control.
-
-I place constraints right next to output contracts:
+I put constraints right next to output contracts, and I make them explicit:
 
 - allowed categories
 - required fields
 - refusal conditions
-- evidence references
+- evidence references that have to be present
 
-When constraints are explicit, wording matters less and behavior gets more stable.
+When constraints are machine-readable, wording matters less. Behavior becomes predictable.
 
-## Freshness policy matters
+## Freshness isn't one-size-fits-all
 
-Different tasks need different freshness windows. Product copy can tolerate older context. Policy responses usually cannot.
+Different tasks have genuinely different tolerance for stale data. Product copy can usually run on older context just fine. Anything policy-related basically can't.
 
-So I define freshness policies per task:
+So I define freshness policies at the task level: TTL by source type, refresh triggers, markers for stale data, and a safe fallback for when freshness is unknown. One global freshness rule is almost always the reason an assistant starts feeling randomly wrong over time.
 
-- TTL by source type
-- refresh triggers
-- stale-data markers
-- safe fallback when freshness is unknown
+## When behavior drifts, I run this loop
 
-One global freshness rule is usually the reason assistants feel randomly wrong.
+1. Replay the failed examples.
+2. Diff the payload blocks against a known good run.
+3. Freeze the model version so I'm not chasing a moving target.
+4. Figure out which block changed.
+5. Patch the smallest possible surface.
+6. Add the case to the regression set.
 
-## My drift debugging loop
+Keeping this loop tight means fixes stay fast and I don't end up overcorrecting prompts when the real problem is somewhere else.
 
-When behavior drifts, I run this process:
+## What this actually buys you
 
-1. Replay failed examples.
-2. Diff payload blocks.
-3. Freeze model version.
-4. Identify which block changed.
-5. Patch smallest possible surface.
-6. Add case to regression set.
-
-This keeps fixes fast and avoids overcorrecting prompts.
-
-## Final note
-
-Context is not just extra text. It is the core product interface. If context structure is disciplined, model behavior becomes much more predictable.`,
+Context isn't extra text you stuff in before the real prompt. It's the core product interface. Get the structure right, and model behavior becomes a lot more predictable than most people expect.`,
   },
   {
     slug: "agentic-workflows-at-scale",
@@ -625,87 +593,76 @@ Context is not just extra text. It is the core product interface. If context str
     publishedAt: "February 14, 2026",
     readTime: "9 min read",
     status: "Published",
-    body: `Long-running agents can look great in demos and still fail in production. I learned this the hard way while building workflows with many tool calls. The common failures were almost always the same: unclear goals, weak tool contracts, poor memory handling, and no budget limits.
+    body: `I've built long-running agents that looked great in demos and fell apart in production. And the failures were almost never exotic. They were the same things every time: unclear goals, weak tool contracts, memory that grew without bound, and no defined budget for how many steps or calls were even allowed.
 
-The fix is to treat agents as systems, not scripts.
+The honest fix is boring. You have to stop thinking of agents as smart scripts and start treating them as systems.
 
-## Plan first, execute second
+## Plan first, then execute
 
-I never let an agent start by calling tools without a plan.
+I never let an agent reach for a tool without a plan in place first.
 
-Each run needs:
+Every run needs to define:
 
-- explicit steps
-- success condition per step
-- retry cap per step
-- global limits for time, cost, and tool calls
-- clear stop conditions
+- the explicit steps in order
+- a success condition for each step
+- a retry cap per step, not just globally
+- hard limits on time, cost, and total tool calls
+- clear stop conditions that aren't just "when it's done"
 
-If "done" is not clearly defined, the agent keeps looping and quality drops.
+If "done" isn't precisely defined going in, the agent will keep looping. And output quality drops with every extra loop.
 
-## Tool contracts decide system quality
+## Tool contracts are where reliability gets decided
 
-Tooling is where agent reliability is won or lost.
+This is the thing I'd tell any team building agentic systems. The reliability of your agent is mostly determined by the quality of your tool contracts, not by your prompts.
 
-For every tool I enforce:
+For every tool I build or integrate:
 
-- typed input
-- typed output
-- timeout and bounded retries
-- explicit error shape
-- idempotent or reversible behavior
+- typed input, typed output, no exceptions
+- timeout defined, bounded retries, not open-ended
+- explicit error shape, not just a caught exception
+- idempotent or reversible behavior where the task allows it
 
-Most severe bugs happen when tool errors get converted into fluent text. I keep errors explicit all the way through the pipeline.
+The most severe bugs I've seen in production happened when tool errors got silently converted into fluent model text and passed along as if nothing went wrong. I keep errors explicit all the way through.
 
-## Runtime lanes for control
+## Four lanes, not one
 
-I use four decision lanes:
+When I'm designing the runtime logic, I think in four explicit decision lanes:
 
-- **Pass:** step succeeded with strong evidence
-- **Retry:** limited retry with narrowed context
-- **Fallback:** safer strategy or simpler path
-- **Escalate:** handoff to human or ask user clarification
+- **Pass:** the step succeeded with strong, traceable evidence.
+- **Retry:** retry with narrowed context, limited to a fixed count.
+- **Fallback:** switch to a safer strategy or a simpler path through the task.
+- **Escalate:** hand off to a human or ask the user for clarification.
 
-Without explicit lanes, agents make those decisions implicitly and inconsistently.
+Without lanes like these spelled out ahead of time, the agent makes those calls implicitly. And implicitly made decisions are the ones that create incidents at 2am.
 
-## Memory model that scales
+## Memory that doesn't blow up at scale
 
-Transcript stuffing breaks quickly. Instead, I keep:
+Stuffing the full transcript into every context window breaks fast. Once you're past a few hundred steps, the noise drowns out the signal.
 
-- an append-only event log
-- a compact working state
-- references to evidence IDs
+What actually works for me: an append-only event log, a compact working state, and references to evidence IDs rather than the evidence itself. After key checkpoints, I summarize current state in a structured format. This keeps token growth linear and reduces drift across long runs significantly.
 
-After key checkpoints, I summarize state in structured form. This keeps token growth under control and reduces drift across long runs.
+## "Confidence" is not a verification mechanism
 
-## Safety means enforceable controls
+I've learned to be skeptical of any system that trusts what the model says it found. Agent confidence is not evidence.
 
-I do not treat "agent confidence" as evidence.
+A claim only gets treated as trusted in my systems if it can be traced back to a verified tool output, a trusted system record, or attributed retrieved evidence. If verification fails, the agent either asks for clarification or escalates. It doesn't guess and move on.
 
-A claim is trusted only if it can be traced to:
+## What I actually measure
 
-- verified tool output
-- trusted system record
-- attributed retrieved evidence
-
-If verification fails, the agent must either ask for clarification or escalate.
-
-## Metrics I actually track
-
-Answer quality alone is not enough for agents. I track:
+Measuring output quality alone will mislead you. For agentic systems specifically, I track:
 
 - task completion rate
-- calls per completed task
-- fallback rate
+- average tool calls per completed task
+- fallback rate (are we hitting edge cases more than expected?)
 - escalation rate
-- budget compliance
-- incident type breakdown
+- budget compliance (did runs stay within defined limits?)
+- incident type breakdown over time
 
-These metrics show whether changes improve real outcomes or only make traces look cleaner.
+These numbers tell you whether your changes improved real outcomes or just made the traces look a little cleaner.
 
-## Final note
+## What actually makes agents scale
 
-Agents scale when the system around them is disciplined. Clear plans, strict tool contracts, controlled memory, and measurable runtime behavior matter far more than longer prompts.`,
+More tokens in the prompt is almost never the answer. What scales is discipline in the system around the agent. Clear upfront plans, strict tool contracts, controlled memory, and runtime behavior you can actually measure. Get those four things right and you can push agents a lot further than most teams think is possible.`,
   },
 ] as const;
 
