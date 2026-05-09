@@ -46,14 +46,6 @@
   --radius-4xl: calc(var(--radius) + 18px);
 }
 
-/* Fluid root font-size — Tailwind spacing, max-widths, and typography are
- * all rem-based, so bumping :root scales the entire UI proportionally on
- * wide displays. Equivalent to a browser zoom but automatic per viewport. */
-@media (min-width: 1280px) { :root { font-size: 17px; } }
-@media (min-width: 1536px) { :root { font-size: 18px; } }
-@media (min-width: 1920px) { :root { font-size: 20px; } }
-@media (min-width: 2560px) { :root { font-size: 22px; } }
-
 :root {
   --radius: 0.95rem;
   --background: #f7f7f5;
