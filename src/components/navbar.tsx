@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Linkedin } from "lucide-react"
+import { Github, Linkedin, Twitter } from "lucide-react"
 import { useEffect, useState } from "react"
 
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -55,7 +55,7 @@ export function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-3">
+      <div className="mx-auto flex max-w-3xl items-center justify-between gap-4 px-6 py-3">
         {/* Brand — just name, no company */}
         <Link href="/" className="text-sm font-bold text-foreground tracking-tight hover:text-primary transition-colors">
           {site.name.split(" ").slice(0, 2).join(" ")}
@@ -83,6 +83,9 @@ export function Navbar() {
           <a href={site.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className={iconBtnClass}>
             <Linkedin className="size-3.5" />
           </a>
+          <a href={site.social.twitter} target="_blank" rel="noreferrer" aria-label="X (Twitter)" className={iconBtnClass}>
+            <Twitter className="size-3.5" />
+          </a>
           <a href={site.social.github} target="_blank" rel="noreferrer" aria-label="GitHub" className={iconBtnClass}>
             <Github className="size-3.5" />
           </a>
@@ -102,7 +105,7 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur px-6 py-4 flex flex-col gap-1">
+        <div className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur px-4 sm:px-6 py-4 flex flex-col gap-1">
           {navLinks.map((link) => (
             <a
               key={link.label}

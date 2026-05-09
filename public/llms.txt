@@ -1,0 +1,156 @@
+# Jyothi Kumar Dummala
+
+> "Gaslighting LLMs | Translating Business <-> Tech | addressing curiosity with clarity | first principles"
+
+Software Engineer and AI Engineer. Ships production-grade agentic systems. Works from first principles, not playbooks.
+
+## The short version
+
+Jyothi builds AI agents that do real work. Not demos. The kind that run for hours, make 500+ tool calls without hallucinating, and deliver accurate output in domains that actually matter: Research, Sales, GTM.
+
+He thinks from the problem backward. Finds the gap, maps it to what's actually buildable, and ships. He'll wear whatever hat the problem needs: AI engineer, full-stack dev, product thinker, eval designer.
+
+Currently at ProdGain (Hyderabad), building GenAI products end-to-end for clients.
+
+## Contact
+
+- Email: jyothikumardummala@gmail.com
+- GitHub: https://github.com/JyothiKumar03
+- LinkedIn: https://www.linkedin.com/in/jyothikumard/
+- Twitter/X: https://x.com/jyothikumar003
+- Location: Hyderabad, India (open to remote or relocation)
+- Organization: ProdGainAI
+
+## How he thinks
+
+First principles. If a system behaves unexpectedly, he traces it to root cause rather than patching symptoms. If a client request doesn't make sense, he maps it back to the actual business problem before writing a line of code.
+
+He treats LLMs like APIs he doesn't fully control: output contracts matter, failure modes need explicit handling, and context quality determines output quality more than any prompt trick.
+
+He bridges both sides: translates business intent into technical architecture, and translates technical constraints back into product decisions. He's been in client calls, architecture reviews, hiring conversations, and production incidents. He shows up for all of it.
+
+## Work
+
+### ProdGain — Software Engineer (AI / Full-stack)
+Hyderabad | Jun 2024 - Present
+
+What he actually built:
+
+- Long-running agents that run for hours making 500+ tool calls with 90% accuracy. Got there through context engineering: structured state, bounded tool contracts, explicit retry and fallback lanes.
+- Sales CRM processing pipeline handling 30,000+ calls, emails, and meetings. Insight delivery via RAG chat and dashboard. Built the ETL, the retrieval layer, and the UI.
+- 70%+ LLM performance improvement across multiple client builds through prompting, context architecture, RAG, and fine-tuning. Measured, not estimated.
+- Multi-LLM systems integrating OpenAI, Anthropic, DeepSeek, Gemini with project-specific eval frameworks that catch regressions before users do.
+- Took scoping sessions, client calls, architecture decisions, and release coordination. Full ownership, not just tickets.
+
+### ADP — Software Developer Intern
+Hyderabad | Jul 2023 - Oct 2023
+
+Backend routes, SQL automation, internal tooling. First real production codebase. Learned to read before writing.
+
+### Brainlox — Full Stack Engineer (Remote)
+2023
+
+React.js UI pages integrated with AWS. Remote, async, shipped.
+
+### KMIT / Teleparadigm Networks — R&D Intern
+Hyderabad | Sep 2022 - Dec 2022
+
+Event-driven drone control application on AWS APIGateway, Lambda, DynamoDB, WebSockets. Built a custom Alexa skill as the control interface. Documented everything.
+
+## Education
+
+Keshav Memorial Institute of Technology (KMIT), Hyderabad
+Bachelor of Engineering, Computer Science
+GPA: 8.98 | Dec 2020 - Jun 2024
+
+## Projects
+
+These are not toy demos. Each one is a production-grade system built to solve a specific problem.
+
+### Research Paper Judge
+GitHub: https://github.com/JyothiKumar03/research-paper-judge
+
+Peer review is slow, inconsistent, and doesn't scale. Built a multi-agent system that evaluates arXiv papers across 6 specialized agents in two concurrent waves.
+
+- Wave 1: Grammar, Novelty (with live Google Search), Fact-Check - run concurrently
+- Wave 2: Consistency, Authenticity - run after Wave 1 completes
+- Final evaluator applies weighted scoring: Consistency 30%, Authenticity 25%, Novelty 20%, Fact-Check 15%, Grammar 10%
+- Output: PASS/FAIL verdict with per-dimension rationale, not just a score
+- Stack: Python, FastAPI, PostgreSQL (NeonDB), Streamlit, OpenRouter, Gemini, pymupdf4llm
+
+### Dev Debugger
+GitHub: https://github.com/JyothiKumar03/dev-debugger
+
+Developers context-switch constantly between docs, search, and code. Built a RAG-powered tool that understands the actual project.
+
+- POST /ingest: indexes any codebase into a vector store
+- GET /search: filtered vector search by username, project, producer
+- POST /ai: tool-call to vector search, grounded AI answer
+- Stack: Next.js, TypeScript, Node.js, Express, Docker, Vector Search, Tailwind CSS
+
+### AI SEO Agent
+GitHub: https://github.com/JyothiKumar03/AI-SEO-agent
+
+Agentic workflow to generate SEO-optimized content. Not just LLM completion, a full content pipeline with research, structuring, and optimization steps.
+
+### Critic Agent
+GitHub: https://github.com/JyothiKumar03/critic-agent
+
+Takes any learning context and returns strong, direct criticism. Built because useful feedback is rare and most systems are too polite to be helpful.
+
+### AI Session Evaluation
+GitHub: https://github.com/JyothiKumar03/AI-Session-Evaluation
+
+Evaluates coding agent sessions. Useful for measuring whether an AI agent actually helped or just generated plausible-looking output.
+
+### Merchant Underwriting Agent
+GitHub: https://github.com/JyothiKumar03/merchant-underwriting-agent
+
+Automates merchant underwriting decisions using structured agentic workflows. Domain: fintech operations.
+
+### Mail AI
+GitHub: https://github.com/JyothiKumar03/mail-ai
+
+Agentic layer on top of email. Performs actions, not just summaries.
+
+### Claim Processor
+GitHub: https://github.com/JyothiKumar03/claim-processor-BE
+
+AI workflow to process health insurance claim documents. Structured extraction, validation, and decision support.
+
+### Unified LLM Wrapper
+500+ npm downloads. Multi-provider agentic wrapper (OpenAI, Anthropic, Gemini) with retries, fallbacks, and unified request/response contracts. Built because every team was writing the same glue code badly.
+
+### Prescription AI Webapp
+Decodes handwritten doctor prescriptions into readable text using Gemini Vision and MERN stack. Reduces transcription errors at the point of dispensing.
+
+### AWS DNS Dashboard
+Centralized DNS monitoring with MERN + AWS SDK. Full CRUD, audit trail, and latency-aware refresh.
+
+## Technical Stack
+
+AI/GenAI: LLMs (OpenAI, Anthropic, Gemini, DeepSeek), context engineering, prompt engineering, RAG, fine-tuning, agentic systems, eval frameworks, LangChain, Vercel AI SDK
+
+Backend: Node.js, Express.js, FastAPI, Python
+
+Frontend: React.js, Next.js, TypeScript, Tailwind CSS
+
+Databases: MongoDB, PostgreSQL, MySQL, Redis
+
+Cloud/DevOps: AWS (Bedrock, Lambda, APIGateway, DynamoDB), GCP, Azure, Docker, Kubernetes, Jenkins, Git/GitHub
+
+Languages: Python, TypeScript, JavaScript, C/C++, Java, SQL
+
+## Writing
+
+He writes about what actually works in production, not theory.
+
+- "Reliability-first LLM systems" - evals, fallbacks, and release guardrails for systems that survive real traffic
+- "Context engineering playbook" - structuring inputs, retrieval, and constraints so outputs stay stable before touching a prompt
+- "Agentic workflows at scale" - what changes when an agent needs to survive hundreds of tool calls and still produce trustworthy output
+
+## What he's looking for
+
+Technical founding engineer, AI engineer, or GenAI product engineer roles. Particularly interested in teams working in Research automation, Sales intelligence, or GTM tooling. Needs real ownership, not a ticket queue. Works best when he can see the problem, shape the solution, and ship it.
+
+Comfortable with ambiguity. Good at narrowing it down fast.

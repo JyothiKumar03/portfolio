@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google"
-import Script from "next/script"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+
+const themeInitScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark')t='dark';var d=document.documentElement;d.classList.toggle('dark',t==='dark');d.style.colorScheme=t;}catch(e){}})();`
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -28,19 +29,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      className="dark"
+      style={{ colorScheme: "dark" }}
+      suppressHydrationWarning
+    >
       <head>
-        <Script
-          id="theme-init"
-          strategy="beforeInteractive"
-        >{`(() => {
-  try {
-    const stored = localStorage.getItem("theme");
-    const theme = stored || "dark";
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    document.documentElement.style.colorScheme = theme;
-  } catch (e) {}
-})();`}</Script>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body
         className={`${spaceGrotesk.variable} ${jetBrainsMono.variable} antialiased`}
