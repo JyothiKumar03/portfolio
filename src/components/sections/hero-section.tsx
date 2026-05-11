@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { AgentsModal } from "@/components/agents-modal"
+import { AgentsButton } from "@/components/agents-modal"
 import { ProfilePhoto } from "@/components/profile-photo"
 import { capabilities, highlights, site } from "@/data/content"
 
@@ -66,7 +66,7 @@ export function HeroSection() {
         {/* ── Right: profile image + FOR AGENTS ── */}
         <div className="flex flex-col gap-3 lg:sticky lg:top-24">
           <ProfilePhoto />
-          <AgentsModal />
+          <AgentsButton />
         </div>
       </div>
 
