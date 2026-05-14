@@ -118,6 +118,64 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "aarogya-medical-support",
+    name: "Aarogya — Medical Customer Support",
+    summary:
+      "AI chatbot for a health insurance company with a custom knowledge-base, end-to-end ticket handling with real-time email notifications, and web-search grounded to admin-curated domains.",
+    highlights: [
+      "Custom KB + pgvector two-stage retrieval",
+      "Full ticket lifecycle with Resend emails",
+      "Domain-grounded web search via Tavily",
+      "Self-improving KB from resolved tickets",
+    ],
+    problem:
+      "Health insurance support teams drown in repetitive queries — agents waste time on FAQs while complex issues get delayed and customers never hear back reliably.",
+    approach:
+      "Built an AI agent (Claude Haiku 4.5) with a single `smart_search` tool that first hits a pgvector knowledge-base (with an LLM judge to verify ≥60% relevance), falls back to Tavily web search scoped to admin-approved domains, and escalates to a ticket flow that sends confirmation + resolution emails via Resend. Resolved tickets feed back into the KB.",
+    value:
+      "Customers get instant, accurate answers for known topics; complex issues are escalated with a full audit trail; every resolved ticket makes the system smarter over time.",
+    snapshot:
+      "Chat interface powered by Claude Haiku with two-stage retrieval: pgvector semantic match → LLM confidence judge → guardrailed web fallback → ticket escalation with email lifecycle. Admin dashboard to manage KB, domains, and tickets.",
+    stack: [
+      "Bun + Express + TypeScript (backend)",
+      "Next.js 16 App Router (frontend)",
+      "Claude Haiku 4.5",
+      "OpenAI text-embedding-3-small",
+      "PostgreSQL + pgvector",
+      "Prisma ORM",
+      "Resend (email)",
+      "Tavily (web search)",
+      "shadcn/ui",
+    ],
+    role: [
+      "Agentic system design",
+      "Two-stage RAG pipeline",
+      "Ticket + email workflow",
+      "Admin dashboard",
+      "Full-stack build",
+    ],
+    outcomes: [
+      "Instant answers for KB-covered queries",
+      "End-to-end ticket lifecycle with email confirmation + resolution",
+      "Domain-grounded web fallback with source transparency",
+      "Self-improving knowledge-base from resolved tickets",
+      "Audit trail on every search and escalation",
+    ],
+    buildNotes: [
+      "One-tool design (`smart_search` only) keeps agent behavior predictable and testable.",
+      "pgvector semantic search → LLM judge (≥60% confidence threshold) before returning KB answers.",
+      "Admin-curated domain list auto-binds to Tavily at request time — no redeployment needed.",
+      "Resend handles ticket confirmation email immediately on creation, resolution email on close.",
+      "Resolved ticket summaries are admin-reviewed before being added to the KB to prevent drift.",
+    ],
+    roadmap: [
+      "Multi-language support for regional insurance markets.",
+      "SLA tracking and escalation alerts for overdue tickets.",
+      "Analytics dashboard for query patterns and KB coverage gaps.",
+    ],
+    link: "https://github.com/JyothiKumar03/Aarogya---Medical-customer-support",
+  },
+  {
     slug: "research-paper-judge",
     name: "Research Paper Judge",
     summary:
