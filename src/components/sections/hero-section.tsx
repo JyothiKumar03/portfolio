@@ -57,7 +57,16 @@ export function HeroSection() {
                 See recent work <ArrowUpRight className="size-4" />
               </Link>
             </Button>
-            <Button variant="outline" asChild>
+            <Button
+              asChild
+              className="border border-primary/30 bg-primary/5 text-foreground shadow-[0_0_12px_var(--accent-glow)] hover:border-primary/60 hover:bg-primary/10 hover:shadow-[0_0_24px_var(--accent-glow)] active:scale-[0.99]"
+            >
+              <Link href="/resume">View Resume</Link>
+            </Button>
+            <Button
+              asChild
+              className="border border-primary/30 bg-primary/5 text-foreground shadow-[0_0_12px_var(--accent-glow)] hover:border-primary/60 hover:bg-primary/10 hover:shadow-[0_0_24px_var(--accent-glow)] active:scale-[0.99]"
+            >
               <a href={`mailto:${site.email}`}>Let&apos;s connect</a>
             </Button>
           </div>
