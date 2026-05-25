@@ -35,6 +35,11 @@ export const highlights = [
     title: "Unified LLM Wrapper",
     description: "Agentic wrapper with retries/fallbacks and 500+ downloads.",
   },
+  {
+    title: "Voice-first AI tutor",
+    description:
+      "Hands-free Spanish tutor with real-time STT → LLM → TTS pipeline and 5 teaching modes.",
+  },
 ];
 
 export const capabilities = [
@@ -431,6 +436,64 @@ export const projects: Project[] = [
     ],
     roadmap: ["Sound effects", "Mobile controls", "Leaderboard"],
     link: "",
+  },
+  {
+    slug: "speech-ai-agent",
+    name: "Voice Tutor — Spanish",
+    summary:
+      "Voice-first AI agent for learning Spanish through natural conversation — real-time STT, LLM orchestration, TTS, 5 teaching modes, and persistent sessions.",
+    highlights: [
+      "Voice-first — no typing, just talk",
+      "5 modes: lesson, quiz, roleplay, chat, doubt resolution",
+      "Real-time STT → LLM → TTS pipeline",
+      "Admin CRUD UI for lessons and quizzes",
+      "Per-turn observability (STT, LLM, TTS, e2e latency)",
+    ],
+    problem:
+      "Language apps rely on tapping buttons and filling blanks — learners never actually speak, so they can't build real conversation skills.",
+    approach:
+      "Built a voice-first agent with Deepgram STT → GPT-4o tool dispatch → Cartesia TTS, running over LiveKit WebRTC. The agent switches between 5 modes (casual chat, structured lessons, quizzes, roleplay conversation, doubt resolution), semantically grades answers via LLM, persists sessions to Neon Postgres, and logs per-turn latency metrics.",
+    value:
+      "Learners practice real spoken conversation, not screen-tapping. Every turn feels like talking to a real tutor — and the system gets smarter about each learner's progress.",
+    snapshot:
+      "User speaks → Deepgram STT → GPT-4o picks a tool (lesson, quiz, roleplay, etc.) → Cartesia TTS talks back — all over LiveKit WebRTC with barge-in support, persistent sessions, and an admin UI for CRUD on lessons, quizzes, and questions.",
+    stack: [
+      "Python (FastAPI)",
+      "Next.js + TypeScript",
+      "LiveKit Cloud (WebRTC)",
+      "Deepgram (STT)",
+      "Cartesia (TTS)",
+      "OpenAI GPT-4o",
+      "Neon Postgres",
+    ],
+    role: [
+      "Agentic system design",
+      "Voice pipeline (STT → LLM → TTS)",
+      "Full-stack build",
+      "Admin CRUD UI",
+      "Per-turn observability",
+    ],
+    outcomes: [
+      "Hands-free spoken conversation practice",
+      "5 teaching modes with smart LLM grading",
+      "Persistent sessions with resume capability",
+      "Admin CRUD interface for content management",
+      "Per-turn latency metrics (STT, LLM TTFT, TTS TTFB, e2e)",
+    ],
+    buildNotes: [
+      "Deepgram nova-3 for STT, Cartesia aura-2 for TTS — both chosen for speed.",
+      "GPT-4o orchestrates 9 tools: start lesson/quiz, submit answer, track mistakes, score progress, etc.",
+      "Answers semantically graded via LLM — not keyword-matched.",
+      "Session summaries feed personalization; pick up where you left off.",
+      "Barge-in cuts off TTS and agent listens again immediately.",
+      "Every turn logs STT text, LLM TTFT, TTS TTFB, and e2e latency with P50/P95 at session end.",
+    ],
+    roadmap: [
+      "Multi-language support (beyond Spanish).",
+      "Pronunciation scoring and feedback.",
+      "Adaptive difficulty based on learner performance.",
+    ],
+    link: "https://github.com/JyothiKumar03/speech-ai-agent",
   },
 ] as const;
 
