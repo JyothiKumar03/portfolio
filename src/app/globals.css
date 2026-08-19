@@ -264,3 +264,69 @@
     background-size: 28px 28px;
   }
 }
+
+/* Homepage as an AI systems interface rather than a conventional portfolio. */
+@layer components {
+  .machine-nav { @apply fixed inset-x-0 top-0 z-50 mx-auto flex h-16 max-w-[110rem] items-center justify-between border-b border-border/60 bg-background/75 px-4 backdrop-blur-xl sm:px-8; }
+  .machine-monogram { @apply flex items-center gap-1 font-mono text-base font-black tracking-[-.18em] text-foreground; }
+  .machine-monogram span { @apply text-primary; } .machine-monogram i { @apply h-4 w-px bg-border; }
+  .machine-nav-links { @apply hidden items-center gap-7 font-mono text-[11px] uppercase tracking-[.14em] text-muted-foreground md:flex; }
+  .machine-nav-links a { @apply transition hover:text-primary; }
+  .machine-nav-tools { @apply flex items-center gap-2; }
+  .machine-nav-tools > a, .machine-theme, .machine-menu { @apply inline-flex size-8 items-center justify-center rounded-none border border-border/70 bg-card/30 text-muted-foreground transition hover:border-primary/60 hover:text-primary; }
+  .machine-theme { @apply rounded-none border-border/70 bg-card/30 text-muted-foreground shadow-none hover:bg-transparent; }
+  .machine-menu { @apply md:hidden; }
+  .machine-mobile-links { @apply absolute left-0 right-0 top-16 grid border-b border-border bg-background p-5 font-mono text-xs uppercase tracking-widest text-muted-foreground md:hidden; }
+  .machine-mobile-links a { @apply border-b border-border/50 py-4 last:border-0 hover:text-primary; }
+
+  .machine-hero { @apply relative isolate min-h-[1050px] overflow-hidden border-b border-border/60 px-5 pb-12 pt-28 sm:px-10 lg:min-h-[970px] lg:px-16 lg:pt-32; }
+  .machine-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 72% 30%, rgba(242,109,79,.18), transparent 20%),radial-gradient(circle at 15% 40%, rgba(135,141,255,.16), transparent 28%),repeating-linear-gradient(90deg,transparent 0,transparent calc(8.333% - 1px),rgba(255,255,255,.055) calc(8.333% - 1px),rgba(255,255,255,.055) 8.333%); pointer-events:none; }
+  .machine-noise { position:absolute; inset:0; opacity:.16; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); mix-blend-mode:soft-light; pointer-events:none; }
+  .hero-rail { @apply absolute bottom-0 left-0 top-16 z-10 hidden w-9 flex-col items-center border-r border-border/60 py-7 font-mono text-[9px] tracking-[.18em] text-muted-foreground lg:flex; writing-mode:vertical-rl; }
+  .hero-rail i { @apply my-5 h-12 w-px bg-primary/70; }
+  .machine-kicker { @apply relative z-10 inline-flex items-center gap-2 border border-primary/35 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[.18em] text-primary; }
+  .machine-status { @apply absolute right-5 top-28 z-10 hidden font-mono text-[10px] tracking-[.18em] text-muted-foreground sm:block lg:right-16; }
+  .machine-status b { @apply ml-2 font-normal text-primary; } .machine-status span { @apply ml-1 text-primary; }
+  .machine-copy { @apply relative z-10 mt-16 max-w-[62rem] lg:ml-[8vw]; }
+  .manifest-label { @apply mb-4 max-w-[18rem] font-mono text-[11px] uppercase leading-[1.65] tracking-[.13em] text-muted-foreground; }
+  .machine-title { @apply relative mt-8 font-sans text-[clamp(4.25rem,11.5vw,12.25rem)] font-black leading-[.76] tracking-[-.105em] text-foreground; }
+  .machine-title span { @apply block; } .machine-title .outline-word { color:transparent; -webkit-text-stroke:1px rgba(242,240,233,.76); margin-left:clamp(0rem,7vw,7rem); }
+  .machine-title .accent-word { @apply mt-7 ml-[5%] font-mono text-[clamp(.8rem,1.5vw,1.35rem)] font-normal tracking-[.24em] text-primary; }
+  .machine-promise { @apply mt-10 flex max-w-xl gap-4 border-l border-primary pl-4 text-lg leading-relaxed text-muted-foreground; }
+  .machine-promise strong { @apply font-medium text-foreground; } .promise-mark { @apply mt-1 text-primary; }
+  .machine-actions { @apply mt-8 flex flex-wrap items-center gap-5; }
+  .text-action { @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground transition hover:text-primary; }
+  .operator-frame { @apply absolute right-[3.5%] top-[12.5rem] z-10 hidden h-[34rem] w-[27rem] -rotate-3 border border-primary/45 bg-card/70 p-3 shadow-[20px_22px_0_rgba(242,109,79,.11)] xl:block; }
+  .operator-frame::before { content:""; position:absolute; inset:-3rem; z-index:-1; background:conic-gradient(from 130deg,transparent 0 18%,rgba(242,109,79,.45) 18.2% 18.5%,transparent 18.7% 48%,rgba(126,136,255,.25) 48.2% 48.5%,transparent 48.7%); mask:radial-gradient(circle,transparent 52%,#000 52.2%); opacity:.8; animation:spin 18s linear infinite; }
+  .operator-portrait { @apply relative h-full overflow-hidden grayscale contrast-125; clip-path:polygon(0 3%,100% 0,97% 96%,4% 100%); }
+  .operator-portrait > div { height:100% !important; border:0; border-radius:0; } .operator-portrait img { object-position:58% center; }
+  .portrait-scan { @apply pointer-events-none absolute inset-x-4 top-0 h-px bg-primary/70 shadow-[0_0_16px_var(--primary)]; animation:scan 5s ease-in-out infinite; }
+  .frame-corner { @apply absolute z-20 size-10 border-primary; } .frame-corner-tl { @apply -left-2 -top-2 border-l-2 border-t-2; } .frame-corner-br { @apply -bottom-2 -right-2 border-b-2 border-r-2; }
+  .frame-label { @apply absolute z-20 font-mono text-[9px] tracking-[.18em] text-primary; } .frame-label-top { @apply -top-6 left-0; } .frame-label-side { @apply -right-5 bottom-11 [writing-mode:vertical-rl]; }
+  .portrait-note { @apply absolute bottom-7 left-7 right-7 z-20 flex items-center justify-between border border-white/15 bg-black/75 px-4 py-3 backdrop-blur; }
+  .portrait-note span { @apply flex items-center gap-1.5 font-mono text-[9px] tracking-[.16em] text-primary; } .portrait-note strong { @apply text-sm font-medium; }
+  .machine-ticker { @apply absolute inset-x-0 top-[44rem] overflow-hidden border-y border-border/60 bg-foreground py-3 text-background; transform:rotate(-2deg) scale(1.04); }
+  .machine-ticker span { display:block; width:max-content; font-family:var(--font-jetbrains-mono); font-size:11px; font-weight:700; letter-spacing:.2em; animation:marquee 22s linear infinite; }
+  .machine-metrics { @apply relative z-20 mt-28 grid border border-border/70 bg-background/80 sm:grid-cols-2 lg:ml-[8vw] lg:mr-[4vw] lg:grid-cols-5; }
+  .metric { @apply flex min-h-28 flex-col justify-between border-b border-border/70 p-4 sm:border-r lg:border-b-0; } .metric:last-child { @apply border-r-0; }
+  .metric b { @apply font-mono text-4xl font-bold tracking-[-.1em] text-foreground; } .metric > span { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.15em] text-muted-foreground; }
+  .metric-featured { @apply bg-primary text-primary-foreground; } .metric-featured span { @apply text-[9px] font-mono tracking-[.16em]; } .metric-featured strong { @apply mt-3 text-2xl font-black leading-[.82] tracking-[-.08em]; }
+  .agent-metric { @apply p-0; } .agent-metric a { @apply h-full rounded-none border-0 bg-transparent px-4 shadow-none hover:bg-primary/10; }
+  .signal-strip { @apply relative z-10 mt-4 grid border-t border-border/60 md:grid-cols-3; }
+  .signal-line { @apply flex gap-4 border-b border-border/60 py-5 pr-6 md:border-r md:px-5 md:last:border-r-0; } .signal-line > span { @apply font-mono text-xs text-primary; } .signal-line b { @apply text-sm font-semibold; } .signal-line p { @apply mt-1 text-xs leading-relaxed text-muted-foreground; }
+
+  .section-shell { @apply relative border-t-0 py-20 md:py-28; } .section-machine-heading { @apply flex items-start border-y border-border/60 py-5; } .section-index { @apply mr-5 font-mono text-sm text-primary sm:mr-12; }
+  .section-machine-heading p { @apply font-mono text-[10px] uppercase tracking-[.18em] text-muted-foreground; } .section-machine-heading h2 { @apply mt-2 text-4xl font-black tracking-[-.075em] sm:text-6xl; } .section-machine-heading h2 span { @apply text-primary; }
+  .section-machine-icon { @apply ml-auto hidden size-12 items-center justify-center border border-border text-primary sm:flex; } .section-machine-body { @apply mt-7; }
+  .career-log { @apply border-t border-border/60; } .career-entry { @apply grid gap-4 border-b border-border/60 py-7 transition hover:bg-card/60 md:grid-cols-[4rem_1.2fr_.7fr_1.7fr] md:gap-6; }
+  .career-count, .career-meta { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.14em] text-primary; } .career-company h3 { @apply text-xl font-semibold tracking-tight; } .career-company p { @apply mt-1 text-sm text-muted-foreground; }
+  .career-entry ul { @apply space-y-2 text-sm leading-relaxed text-muted-foreground; } .career-entry li { @apply flex gap-2 before:text-primary before:content-['↗']; }
+  .project-grid { @apply grid gap-px overflow-hidden border border-border/70 bg-border md:grid-cols-2 xl:grid-cols-3; } .project-card { @apply min-h-80 rounded-none border-0 bg-background p-6 shadow-none hover:translate-y-0 hover:bg-card hover:shadow-none; }
+  .project-card::before { content:""; position:absolute; left:0; top:0; height:3px; width:0; background:var(--primary); transition:width .5s ease; } .project-card:hover::before { width:100%; } .project-card::after { opacity:0; transition:opacity .35s ease; } .project-card:hover::after { opacity:1; }
+  .project-card-1 { @apply bg-primary text-primary-foreground; } .project-card-1 h3, .project-card-1 p { color:inherit !important; } .project-card-1 .pill, .project-card-1 .project-status { border-color:rgba(24,12,8,.34); background:rgba(24,12,8,.08); color:rgba(24,12,8,.8); } .project-card-1 .project-status { background:rgba(24,12,8,.12); }
+}
+
+@keyframes scan { 0%,100%{transform:translateY(0);opacity:0} 15%,75%{opacity:1} 50%{transform:translateY(33rem)} }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@media (max-width:1279px) { .machine-hero { min-height:1050px; } }
+@media (max-width:639px) { .machine-hero { min-height:970px;padding-top:7rem; } .machine-copy { margin-top:4rem; } .machine-title .outline-word,.machine-title .accent-word { margin-left:0; } .machine-title .accent-word { margin-top:1.5rem; } .machine-promise { font-size:1rem; } .machine-ticker { top:34rem; } .machine-metrics { margin-top:15rem; } .metric { min-height:8.5rem; } .metric-featured,.agent-metric { grid-column:span 2; } .signal-strip { display:none; } }

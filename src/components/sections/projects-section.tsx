@@ -22,7 +22,7 @@ export function ProjectsSection() {
           <Link
             key={project.slug}
             href={`/projects/${project.slug}`}
-            className="project-card group"
+            className={`project-card project-card-${index + 1} group`}
           >
             <div className="flex items-start justify-between gap-3">
               <span className="font-mono text-xs text-primary/80">0{index + 1}</span>

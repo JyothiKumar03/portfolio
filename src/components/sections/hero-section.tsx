@@ -1,66 +1,61 @@
 import Link from "next/link"
-import { ArrowDownRight, Github, Sparkles } from "lucide-react"
+import { ArrowDownRight, ArrowUpRight, Github, Sparkles } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import { AgentsButton } from "@/components/agents-modal"
+import { Button } from "@/components/ui/button"
 import { ProfilePhoto } from "@/components/profile-photo"
 import { highlights, site } from "@/data/content"
 
 export function HeroSection() {
   return (
-    <header className="relative isolate overflow-hidden pb-14 pt-10 md:pb-20 md:pt-16">
-      <div className="hero-glow hero-glow-one" />
-      <div className="hero-glow hero-glow-two" />
-      <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-        <div>
-          <div className="eyebrow inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-primary">
-            <span className="live-dot" /> SYSTEMS THINKER · AI ENGINEER
-          </div>
-          <p className="mt-8 font-mono text-xs uppercase tracking-[0.24em] text-primary/80">Hello, I&apos;m</p>
-          <h1 className="hero-title mt-3 max-w-4xl text-balance text-5xl leading-[0.93] sm:text-7xl lg:text-[6.9rem]">
-            Jyothi<br /><span className="hero-contrast">Kumar.</span>
-          </h1>
-          <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            I turn messy business problems into <span className="text-foreground">reliable AI products</span> — agents, retrieval systems, and full-stack workflows that earn their place in production.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button size="lg" asChild>
-              <Link href="#projects">Explore the work <ArrowDownRight className="size-4" /></Link>
-            </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href={site.social.github} target="_blank" rel="noreferrer"><Github className="size-4" /> GitHub</a>
-            </Button>
-          </div>
-          <div className="mt-12 grid max-w-xl grid-cols-3 gap-3 border-y border-border/60 py-5">
-            <div><p className="stat-number">500+</p><p className="stat-label">tool calls</p></div>
-            <div><p className="stat-number">90%</p><p className="stat-label">accuracy</p></div>
-            <div><p className="stat-number">6+</p><p className="stat-label">AI products</p></div>
-          </div>
+    <header className="machine-hero">
+      <div className="machine-noise" />
+      <aside className="hero-rail" aria-hidden="true">
+        <span>JK/03</span><i /><span>HYD · IN</span><i /><span>EST. 2022</span>
+      </aside>
+
+      <div className="machine-kicker"><span className="live-dot" /> OPERATING SYSTEM / AI + PRODUCT</div>
+      <div className="machine-status">STATUS <b>ONLINE</b> <span>●</span></div>
+
+      <div className="machine-copy">
+        <p className="manifest-label">Independent engineer for systems that need<br />to work after the demo ends.</p>
+        <h1 className="machine-title" aria-label="Jyothi Kumar, AI systems engineer">
+          <span>JYOTHI</span>
+          <span className="outline-word">KUMAR</span>
+          <span className="accent-word">/ AI SYSTEMS</span>
+        </h1>
+        <div className="machine-promise">
+          <span className="promise-mark">✳</span>
+          <p>I design agents, context engines, and product workflows with one rule: <strong>they must be dependable in the real world.</strong></p>
         </div>
-        <div className="relative mx-auto w-full max-w-[31rem] lg:ml-auto">
-          <div className="profile-orbit profile-orbit-a" /><div className="profile-orbit profile-orbit-b" />
-          <div className="relative overflow-hidden rounded-[2rem] border border-primary/25 bg-card p-2 shadow-[0_26px_80px_rgba(0,0,0,0.38)]">
-            <ProfilePhoto />
-            <div className="absolute bottom-7 left-7 right-7 flex items-center justify-between rounded-xl border border-white/10 bg-black/40 px-4 py-3 backdrop-blur-md">
-              <div><p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">Now building</p><p className="mt-1 text-sm font-medium text-white">Agents with receipts</p></div>
-              <Sparkles className="size-4 text-primary" />
-            </div>
-          </div>
-          <div className="mt-3"><AgentsButton /></div>
+        <div className="machine-actions">
+          <Button size="lg" asChild><Link href="#projects">Enter project archive <ArrowDownRight className="size-4" /></Link></Button>
+          <a className="text-action" href={site.social.github} target="_blank" rel="noreferrer"><Github className="size-4" /> GitHub / 79 repositories <ArrowUpRight className="size-3" /></a>
         </div>
       </div>
-      <div className="relative mt-10 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
-        {highlights.map((item) => (
-          <div
-            key={item.title}
-            className="signal-card"
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-primary/80">Capability</p>
-            <p className="mt-2 text-sm font-semibold text-foreground">{item.title}</p>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              {item.description}
-            </p>
-          </div>
+
+      <div className="operator-frame">
+        <div className="frame-corner frame-corner-tl" /><div className="frame-corner frame-corner-br" />
+        <p className="frame-label frame-label-top">OPERATOR // J.KUMAR</p>
+        <div className="operator-portrait"><ProfilePhoto /></div>
+        <div className="portrait-scan" />
+        <p className="frame-label frame-label-side">DEPLOY / MEASURE / ITERATE</p>
+        <div className="portrait-note"><span><Sparkles className="size-3" /> CURRENT SIGNAL</span><strong>Agents with receipts</strong></div>
+      </div>
+
+      <div className="machine-ticker" aria-hidden="true"><span>RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—&nbsp;RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—</span></div>
+
+      <div className="machine-metrics">
+        <div className="metric metric-featured"><span>PRODUCTION<br />MINDSET</span><strong>NO<br />DEMO<br />WARE.</strong></div>
+        <div className="metric"><b>500+</b><span>TOOL CALLS<br />ORCHESTRATED</span></div>
+        <div className="metric"><b>90%</b><span>AGENT<br />ACCURACY</span></div>
+        <div className="metric"><b>06</b><span>RECENT<br />PUBLIC BUILDS</span></div>
+        <div className="metric agent-metric"><AgentsButton /></div>
+      </div>
+
+      <div className="signal-strip">
+        {highlights.slice(0, 3).map((item, index) => (
+          <div key={item.title} className="signal-line"><span>0{index + 1}</span><div><b>{item.title}</b><p>{item.description}</p></div></div>
         ))}
       </div>
     </header>
