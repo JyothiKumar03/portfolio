@@ -5,7 +5,7 @@ export const site = {
     `I build production-grade GenAI products end-to-end - provider orchestration, prompting + context engineering, RAG, fine-tuning, agentic workflows, and evaluation frameworks. \n I love to understand the domain, map the problem to a reliable solution and scale it!`,
   interest:`I have experience in shipping agents to sales, market research and GTM domains. Where I map the problems, ship agents (diff architecture agents) and then deliver the solution!`,
   focus: "Ownership, collaboration, and measurable business outcomes.",
-  tagline: "Building agents that close deals, not just demo well. Shipping in Research, Sales, GTM domains.",
+  tagline: "Building agents that close deals. Shipping in Research, Sales, GTM domains.",
   email: "jyothikumardummala@gmail.com",
   location: "Hyderabad, India (Open to Remote / Relocate)",
   social: {
@@ -55,7 +55,7 @@ export const experience = [
     company: "ProdGain",
     role: "Software Engineer (AI / Full-stack)",
     location: "Hyderabad",
-    dates: "Jun 2024 - Present",
+    dates: "Jun 2024 - Feb 2026",
     points: [
       "Built full-stack MERN applications with integrated GenAI capabilities.",
       "Integrated OpenAI, Anthropic, DeepSeek, Gemini and built evaluation frameworks.",
