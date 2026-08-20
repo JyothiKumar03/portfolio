@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, Mail } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 
@@ -92,22 +92,19 @@ export function BlogDetail({ post }: BlogDetailProps) {
           </article>
         </Panel>
 
-        <Panel className="mt-10">
-          <div className="flex items-center gap-3">
-            <Mail className="size-5 text-foreground" />
+        <div className="mt-12 flex flex-col gap-4 border-y border-border/60 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
             <p className="text-base font-semibold text-foreground">
               Want a specific angle covered?
             </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Tell me what you&apos;re building and I&apos;ll write it.
+            </p>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Tell me what you&apos;re building and I&apos;ll write it.
-          </p>
-          <div className="mt-4">
-            <Button asChild>
-              <a href={`mailto:${site.email}`}>Request a post</a>
-            </Button>
-          </div>
-        </Panel>
+          <Button asChild>
+            <a href={`mailto:${site.email}`}>Request a post</a>
+          </Button>
+        </div>
 
         <Footer />
       </main>
