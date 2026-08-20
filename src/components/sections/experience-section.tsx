@@ -1,5 +1,3 @@
-import { Briefcase } from "lucide-react"
-
 import { Section } from "@/components/section"
 import { experience } from "@/data/content"
 
@@ -10,7 +8,6 @@ export function ExperienceSection() {
       index="01"
       title="Experience"
       subtitle="Where I shipped"
-      icon={<Briefcase className="size-10 sm:size-12" />}
     >
       <div className="career-log">
         {experience.map((item, index) => (
