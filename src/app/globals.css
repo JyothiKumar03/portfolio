@@ -164,7 +164,9 @@
 }
 
 @layer components {
-  @screen sm {
+  /* Tailwind v4 dropped @screen — these must be plain media queries or the
+     whole block is silently discarded (sm: 40rem, md: 48rem, lg: 64rem). */
+  @media (min-width: 40rem) {
     .page-container,
     .page-container-md,
     .page-container-sm,
@@ -200,7 +202,7 @@
     }
   }
 
-  @screen md {
+  @media (min-width: 48rem) {
     .page-container {
       @apply px-10;
     }
@@ -221,7 +223,7 @@
     }
   }
 
-  @screen lg {
+  @media (min-width: 64rem) {
     .hero-title {
       @apply text-6xl;
     }
@@ -305,9 +307,11 @@
   .frame-label { @apply absolute z-20 font-mono text-[9px] tracking-[.18em] text-primary; } .frame-label-top { @apply -top-6 left-0; } .frame-label-side { @apply -right-5 bottom-11 [writing-mode:vertical-rl]; }
   .portrait-note { @apply absolute bottom-7 left-7 right-7 z-20 flex items-center justify-between border border-white/15 bg-black/75 px-4 py-3 backdrop-blur; }
   .portrait-note span { @apply flex items-center gap-1.5 font-mono text-[9px] tracking-[.16em] text-primary; } .portrait-note strong { @apply text-sm font-medium; }
-  .machine-ticker { @apply absolute inset-x-0 top-[44rem] overflow-hidden border-y border-border/60 bg-foreground py-3 text-background; transform:rotate(-2deg) scale(1.04); }
+  /* Full-bleed but in normal flow: an absolute offset cannot clear both the CTA
+     row and the metrics grid at every width, so it collided with one or the other. */
+  .machine-ticker { @apply relative z-0 mt-14 overflow-hidden border-y border-border/60 bg-foreground py-3 text-background; width:100vw; margin-left:calc(50% - 50vw); transform:rotate(-2deg) scale(1.04); }
   .machine-ticker span { display:block; width:max-content; font-family:var(--font-jetbrains-mono); font-size:11px; font-weight:700; letter-spacing:.2em; animation:marquee 22s linear infinite; }
-  .machine-metrics { @apply relative z-20 mt-28 grid border border-border/70 bg-background/80 sm:grid-cols-2 lg:ml-[8vw] lg:mr-[4vw] lg:grid-cols-5; }
+  .machine-metrics { @apply relative z-20 mt-14 grid border border-border/70 bg-background/80 sm:grid-cols-2 lg:ml-[8vw] lg:mr-[4vw] lg:grid-cols-5; }
   .metric { @apply flex min-h-28 flex-col justify-between border-b border-border/70 p-4 sm:border-r lg:border-b-0; } .metric:last-child { @apply border-r-0; }
   .metric b { @apply font-mono text-4xl font-bold tracking-[-.1em] text-foreground; } .metric > span { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.15em] text-muted-foreground; }
   .metric-featured { @apply bg-primary text-primary-foreground; } .metric-featured span { @apply text-[9px] font-mono tracking-[.16em]; } .metric-featured strong { @apply mt-3 text-2xl font-black leading-[.82] tracking-[-.08em]; }
@@ -317,16 +321,29 @@
 
   .section-shell { @apply relative border-t-0 py-20 md:py-28; } .section-machine-heading { @apply flex items-start border-y border-border/60 py-5; } .section-index { @apply mr-5 font-mono text-sm text-primary sm:mr-12; }
   .section-machine-heading p { @apply font-mono text-[10px] uppercase tracking-[.18em] text-muted-foreground; } .section-machine-heading h2 { @apply mt-2 text-4xl font-black tracking-[-.075em] sm:text-6xl; } .section-machine-heading h2 span { @apply text-primary; }
-  .section-machine-icon { @apply ml-auto hidden size-12 items-center justify-center border border-border text-primary sm:flex; } .section-machine-body { @apply mt-7; }
+  .section-machine-body { @apply mt-7; }
   .career-log { @apply border-t border-border/60; } .career-entry { @apply grid gap-4 border-b border-border/60 py-7 transition hover:bg-card/60 md:grid-cols-[4rem_1.2fr_.7fr_1.7fr] md:gap-6; }
   .career-count, .career-meta { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.14em] text-primary; } .career-company h3 { @apply text-xl font-semibold tracking-tight; } .career-company p { @apply mt-1 text-sm text-muted-foreground; }
   .career-entry ul { @apply space-y-2 text-sm leading-relaxed text-muted-foreground; } .career-entry li { @apply flex gap-2 before:text-primary before:content-['↗']; }
   .project-grid { @apply grid gap-px overflow-hidden border border-border/70 bg-border md:grid-cols-2 xl:grid-cols-3; } .project-card { @apply min-h-80 rounded-none border-0 bg-background p-6 shadow-none hover:translate-y-0 hover:bg-card hover:shadow-none; }
   .project-card::before { content:""; position:absolute; left:0; top:0; height:3px; width:0; background:var(--primary); transition:width .5s ease; } .project-card:hover::before { width:100%; } .project-card::after { opacity:0; transition:opacity .35s ease; } .project-card:hover::after { opacity:1; }
+  /* Shared spec-sheet rows: dense, hairline-separated, full-width. Sparse content
+     inside big rounded cards left most of the row empty at desktop widths. */
+  .spec-log { @apply border-t border-border/60; }
+  .spec-row { @apply grid gap-3 border-b border-border/60 py-6 md:gap-6; }
+  .skill-row { @apply md:grid-cols-[4rem_13rem_1fr] md:items-center; }
+  .tier-row { @apply md:grid-cols-[4rem_15rem_1fr] md:items-baseline; }
+  .post-row { @apply transition hover:bg-card/60 md:grid-cols-[4rem_1.3fr_.6fr_1.6fr] md:items-baseline; }
+  .spec-index { @apply font-mono text-[10px] uppercase tracking-[.14em] text-primary; }
+  .spec-name { @apply flex items-center gap-2 text-base font-semibold tracking-tight text-foreground; }
+  .spec-meta { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.14em] text-primary; }
+  .spec-body { @apply text-sm leading-relaxed text-muted-foreground; }
+  .spec-chips { @apply flex flex-wrap gap-2; }
+
   .project-card-1 { @apply bg-primary text-primary-foreground; } .project-card-1 h3, .project-card-1 p { color:inherit !important; } .project-card-1 .pill, .project-card-1 .project-status { border-color:rgba(24,12,8,.34); background:rgba(24,12,8,.08); color:rgba(24,12,8,.8); } .project-card-1 .project-status { background:rgba(24,12,8,.12); }
 }
 
 @keyframes scan { 0%,100%{transform:translateY(0);opacity:0} 15%,75%{opacity:1} 50%{transform:translateY(33rem)} }
 @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 @media (max-width:1279px) { .machine-hero { min-height:1050px; } }
-@media (max-width:639px) { .machine-hero { min-height:970px;padding-top:7rem; } .machine-copy { margin-top:4rem; } .machine-title .outline-word,.machine-title .accent-word { margin-left:0; } .machine-title .accent-word { margin-top:1.5rem; } .machine-promise { font-size:1rem; } .machine-ticker { top:34rem; } .machine-metrics { margin-top:15rem; } .metric { min-height:8.5rem; } .metric-featured,.agent-metric { grid-column:span 2; } .signal-strip { display:none; } }
+@media (max-width:639px) { .machine-hero { min-height:970px;padding-top:7rem; } .machine-copy { margin-top:4rem; } .machine-title .outline-word,.machine-title .accent-word { margin-left:0; } .machine-title .accent-word { margin-top:1.5rem; } .machine-promise { font-size:1rem; } .machine-ticker { margin-top:3rem; } .machine-metrics { margin-top:3rem; } .metric { min-height:8.5rem; } .metric-featured,.agent-metric { grid-column:span 2; } .signal-strip { display:none; } }
