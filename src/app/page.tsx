@@ -15,21 +15,13 @@ export default function Home() {
         <section id="about">
           <HeroSection />
         </section>
-        <section id="experience">
-          <ExperienceSection />
-        </section>
-        <section id="projects">
-          <ProjectsSection />
-        </section>
-        <section id="skills">
-          <SkillsSection />
-        </section>
-        <section id="blog">
-          <BlogSection />
-        </section>
-        <section id="contact">
-          <ContactSection />
-        </section>
+        {/* The rest render their own <section id> via <Section /> — wrapping
+            them again here duplicated every anchor id in the document. */}
+        <ExperienceSection />
+        <ProjectsSection />
+        <SkillsSection />
+        <BlogSection />
+        <ContactSection />
         <Footer />
       </main>
     </div>
