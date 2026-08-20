@@ -1,4 +1,4 @@
-import { Bot, Cloud, Code2, Database, Globe, Wrench } from "lucide-react"
+import { Bot, Cloud, Code2, Database, Globe } from "lucide-react"
 
 import { Section } from "@/components/section"
 import { skills, tiers } from "@/data/content"
@@ -11,25 +11,20 @@ const categoryIcons: Record<string, React.ReactNode> = {
   "Cloud / DevOps": <Cloud className="size-3.5" />,
 }
 
+const pad = (index: number) => String(index + 1).padStart(2, "0")
+
 export function SkillsSection() {
   return (
-    <Section
-      id="skills"
-      index="03"
-      title="Skills"
-      subtitle="Toolbox"
-      icon={<Wrench className="size-10 sm:size-12" />}
-    >
-      <div className="grid gap-4 md:grid-cols-2">
-        {skills.map((group) => (
-          <div key={group.category} className="surface-card">
-            <div className="flex items-center gap-2 text-muted-foreground">
+    <Section id="skills" index="03" title="Skills" subtitle="Toolbox">
+      <div className="spec-log">
+        {skills.map((group, i) => (
+          <div key={group.category} className="spec-row skill-row">
+            <span className="spec-index">{pad(i)}</span>
+            <h3 className="spec-name">
               {categoryIcons[group.category]}
-              <h3 className="text-sm font-semibold text-foreground">
-                {group.category}
-              </h3>
-            </div>
-            <div className="mt-3 flex flex-wrap gap-2">
+              {group.category}
+            </h3>
+            <div className="spec-chips">
               {group.items.map((item) => (
                 <span key={item} className="chip">
                   {item}
@@ -40,22 +35,14 @@ export function SkillsSection() {
         ))}
       </div>
 
-      <div className="surface-card">
-        <p className="text-sm font-semibold text-foreground">
-          My 5-tier GenAI build approach
-        </p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-16">
+        <p className="eyebrow-mono">My 5-tier GenAI build approach</p>
+        <div className="spec-log mt-5">
           {tiers.map((tier, i) => (
-            <div key={tier.title} className="flex gap-3">
-              <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-primary/10 text-[9px] font-bold text-primary">
-                {i + 1}
-              </span>
-              <div>
-                <p className="text-sm font-medium text-foreground">{tier.title}</p>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {tier.description}
-                </p>
-              </div>
+            <div key={tier.title} className="spec-row tier-row">
+              <span className="spec-index">{pad(i)}</span>
+              <h4 className="spec-name">{tier.title}</h4>
+              <p className="spec-body">{tier.description}</p>
             </div>
           ))}
         </div>
