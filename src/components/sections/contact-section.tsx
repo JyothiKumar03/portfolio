@@ -1,5 +1,3 @@
-import { Mail } from "lucide-react"
-
 import { Panel } from "@/components/panel"
 import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
@@ -12,9 +10,8 @@ export function ContactSection() {
       index="05"
       title="Contact"
       subtitle="Let's build"
-      icon={<Mail className="size-10 sm:size-12" />}
     >
-      <div className="flex flex-col gap-6 md:flex-row">
+      <div className="flex flex-col gap-6 md:flex-row md:items-start">
         <Panel className="md:flex-[1.2]">
           <p className="eyebrow">Let&apos;s explore ideas</p>
           <p className="mt-3 text-base font-semibold text-foreground sm:text-lg">
