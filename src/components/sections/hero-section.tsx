@@ -18,7 +18,7 @@ export function HeroSection() {
       <div className="machine-status">STATUS <b>ONLINE</b> <span>●</span></div>
 
       <div className="machine-copy">
-        <p className="manifest-label">Independent engineer for systems that need<br />to work after the demo ends.</p>
+        <p className="manifest-label">Independent engineer for AI systems<br />that have to hold up in production.</p>
         <h1 className="machine-title" aria-label="Jyothi Kumar, AI systems engineer">
           <span>JYOTHI</span>
           <span className="outline-word">KUMAR</span>
@@ -46,7 +46,7 @@ export function HeroSection() {
       <div className="machine-ticker" aria-hidden="true"><span>RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—&nbsp;RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—</span></div>
 
       <div className="machine-metrics">
-        <div className="metric metric-featured"><span>PRODUCTION<br />MINDSET</span><strong>NO<br />DEMO<br />WARE.</strong></div>
+        <div className="metric metric-featured"><span>PRODUCTION<br />MINDSET</span><strong>BUILT<br />TO<br />RUN.</strong></div>
         <div className="metric"><b>500+</b><span>TOOL CALLS<br />ORCHESTRATED</span></div>
         <div className="metric"><b>90%</b><span>AGENT<br />ACCURACY</span></div>
         <div className="metric"><b>06</b><span>RECENT<br />PUBLIC BUILDS</span></div>
