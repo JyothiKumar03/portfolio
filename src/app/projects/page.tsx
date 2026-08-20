@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowUpRight, Rocket } from "lucide-react"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
 import { Footer } from "@/components/footer"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -20,10 +20,7 @@ export default function ProjectsPage() {
           >
             <ArrowLeft className="size-3" /> Back home
           </Link>
-          <div className="mt-6 flex items-center gap-3">
-            <Rocket className="size-6 text-foreground" />
-            <p className="eyebrow">Projects</p>
-          </div>
+          <p className="eyebrow mt-6">Projects</p>
           <h1 className="page-title mt-4 text-balance">Recent work, deeper cuts</h1>
           <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
             Detailed breakdowns of the systems, outcomes, and reliability patterns
@@ -46,7 +43,7 @@ export default function ProjectsPage() {
                     {project.summary}
                   </p>
                 </div>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex shrink-0 flex-wrap gap-2">
                   <Button variant="outline" size="sm" asChild>
                     <Link href={`/projects/${project.slug}`}>
                       View details <ArrowUpRight className="size-3" />
@@ -55,7 +52,7 @@ export default function ProjectsPage() {
                   {project.link ? (
                     <Button variant="ghost" size="sm" asChild>
                       <a href={project.link} target="_blank" rel="noreferrer">
-                        External link
+                        External link <ArrowUpRight className="size-3" />
                       </a>
                     </Button>
                   ) : null}
