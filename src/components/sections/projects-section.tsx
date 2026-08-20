@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowUpRight, Orbit, Rocket } from "lucide-react"
+import { ArrowUpRight, Orbit } from "lucide-react"
 
 import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
@@ -15,7 +15,6 @@ export function ProjectsSection() {
       index="02"
       title="Recent work"
       subtitle="Selected builds · 2026"
-      icon={<Rocket className="size-10 sm:size-12" />}
     >
       <div className="project-grid">
         {featuredProjects.map((project, index) => (
