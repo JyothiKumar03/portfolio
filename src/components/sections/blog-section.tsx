@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BookOpenText } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 import { Section } from "@/components/section"
 import { Button } from "@/components/ui/button"
@@ -9,33 +9,29 @@ export function BlogSection() {
   const featuredPosts = posts.slice(0, 2)
 
   return (
-    <Section
-      id="blog"
-      index="04"
-      title="Blog"
-      subtitle="Writing"
-      icon={<BookOpenText className="size-10 sm:size-12" />}
-    >
-      <div className="space-y-4">
-        {featuredPosts.map((post) => (
+    <Section id="blog" index="04" title="Blog" subtitle="Writing">
+      <div className="spec-log">
+        {featuredPosts.map((post, i) => (
           <Link
             key={post.slug}
             href={`/blog/${post.slug}`}
-            className="surface-card group flex flex-col gap-2 transition hover:-translate-y-1 hover:border-foreground/20"
+            className="spec-row post-row group"
           >
-            <div className="flex flex-col gap-2">
-              <h3 className="min-w-0 text-base font-semibold text-foreground text-balance">
-                {post.title}
-              </h3>
-              <p className="eyebrow">
-                {post.publishedAt} · {post.readTime}
-              </p>
-            </div>
-            <p className="text-sm text-muted-foreground">{post.summary}</p>
+            <span className="spec-index">{String(i + 1).padStart(2, "0")}</span>
+            <h3 className="spec-name">
+              {post.title}
+              <ArrowUpRight className="size-4 shrink-0 text-primary opacity-0 transition group-hover:opacity-100" />
+            </h3>
+            <p className="spec-meta">
+              {post.publishedAt}
+              <br />
+              {post.readTime}
+            </p>
+            <p className="spec-body">{post.summary}</p>
           </Link>
         ))}
       </div>
-      <div>
+      <div className="mt-8">
         <Button variant="outline" asChild>
           <Link href="/blog">View all posts</Link>
         </Button>

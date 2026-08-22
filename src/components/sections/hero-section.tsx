@@ -1,96 +1,61 @@
 import Link from "next/link"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowDownRight, ArrowUpRight, Github, Sparkles } from "lucide-react"
 
-import { Button } from "@/components/ui/button"
 import { AgentsButton } from "@/components/agents-modal"
+import { Button } from "@/components/ui/button"
 import { ProfilePhoto } from "@/components/profile-photo"
-import { capabilities, highlights, site } from "@/data/content"
+import { highlights, site } from "@/data/content"
 
 export function HeroSection() {
   return (
-    <header className="relative pb-12 pt-8 md:pb-14 md:pt-12">
-      {/* Eyebrow — full width */}
-      <div className="eyebrow inline-flex items-center gap-2">
-        <span className="size-2 rounded-full bg-primary/70 shadow-[0_0_16px_var(--accent-glow)] animate-pulse" />
-        Open to ideas &amp; collaboration
-      </div>
+    <header className="machine-hero">
+      <div className="machine-noise" />
+      <aside className="hero-rail" aria-hidden="true">
+        <span>JK/03</span><i /><span>HYD · IN</span><i /><span>EST. 2022</span>
+      </aside>
 
-      {/* Two-column grid */}
-      <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_40rem] lg:gap-14 items-stretch">
+      <div className="machine-kicker"><span className="live-dot" /> OPERATING SYSTEM / AI + PRODUCT</div>
+      <div className="machine-status">STATUS <b>ONLINE</b> <span>●</span></div>
 
-        {/* ── Left: text content — stretches to match image height ── */}
-        <div className="flex flex-col">
-          <h1 className="hero-title text-balance">{site.name}</h1>
-
-          <p className="mt-3 text-base text-muted-foreground sm:text-lg">
-            {site.title}
-          </p>
-
-          <p className="eyebrow mt-2">{site.tagline}</p>
-
-          <p className="mt-5 max-w-2xl text-base text-foreground/80 sm:text-lg text-balance">
-            {site.description}
-          </p>
-
-          <p className="mt-5 max-w-2xl text-base text-foreground/80 sm:text-lg text-balance">
-            {site.interest}
-          </p>
-
-          <p className="eyebrow mt-4">{site.focus}</p>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            {capabilities.map((item) => (
-              <span key={item} className="pill">
-                {item}
-              </span>
-            ))}
-          </div>
-
-          {/* Spacer pushes buttons to the bottom, aligned with FOR AGENTS */}
-          <div className="flex-1" />
-
-          <div className="mt-8 h-px w-32 bg-gradient-to-r from-primary via-foreground/30 to-transparent" />
-
-          <div className="mt-6 flex flex-wrap gap-4">
-            <Button asChild>
-              <Link href="/projects">
-                See recent work <ArrowUpRight className="size-4" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              className="border border-primary/30 bg-primary/5 text-foreground shadow-[0_0_12px_var(--accent-glow)] hover:border-primary/60 hover:bg-primary/10 hover:shadow-[0_0_24px_var(--accent-glow)] active:scale-[0.99]"
-            >
-              <Link href="/resume">View Resume</Link>
-            </Button>
-            <Button
-              asChild
-              className="border border-primary/30 bg-primary/5 text-foreground shadow-[0_0_12px_var(--accent-glow)] hover:border-primary/60 hover:bg-primary/10 hover:shadow-[0_0_24px_var(--accent-glow)] active:scale-[0.99]"
-            >
-              <a href={`mailto:${site.email}`}>Let&apos;s connect</a>
-            </Button>
-          </div>
+      <div className="machine-copy">
+        <p className="manifest-label">Independent engineer for AI systems<br />that have to hold up in production.</p>
+        <h1 className="machine-title" aria-label="Jyothi Kumar, AI systems engineer">
+          <span>JYOTHI</span>
+          <span className="outline-word">KUMAR</span>
+          <span className="accent-word">/ AI SYSTEMS</span>
+        </h1>
+        <div className="machine-promise">
+          <span className="promise-mark">✳</span>
+          <p>I design agents, context engines, and product workflows with one rule: <strong>they must be dependable in the real world.</strong></p>
         </div>
-
-        {/* ── Right: profile image + FOR AGENTS ── */}
-        <div className="flex flex-col gap-3 lg:sticky lg:top-24">
-          <ProfilePhoto />
-          <AgentsButton />
+        <div className="machine-actions">
+          <Button size="lg" asChild><Link href="#projects">Enter project archive <ArrowDownRight className="size-4" /></Link></Button>
+          <a className="text-action" href={site.social.github} target="_blank" rel="noreferrer"><Github className="size-4" /> GitHub / 79 repositories <ArrowUpRight className="size-3" /></a>
         </div>
       </div>
 
-      {/* Highlights grid — full width below */}
-      <div className="mt-6 grid gap-4 md:grid-cols-2">
-        {highlights.map((item) => (
-          <div
-            key={item.title}
-            className="surface-grid surface-card backdrop-blur"
-          >
-            <p className="text-sm font-semibold text-foreground">{item.title}</p>
-            <p className="mt-2 text-sm text-muted-foreground">
-              {item.description}
-            </p>
-          </div>
+      <div className="operator-frame">
+        <div className="frame-corner frame-corner-tl" /><div className="frame-corner frame-corner-br" />
+        <p className="frame-label frame-label-top">OPERATOR // J.KUMAR</p>
+        <div className="operator-portrait"><ProfilePhoto /></div>
+        <div className="portrait-scan" />
+        <p className="frame-label frame-label-side">DEPLOY / MEASURE / ITERATE</p>
+        <div className="portrait-note"><span><Sparkles className="size-3" /> CURRENT SIGNAL</span><strong>Agents with receipts</strong></div>
+      </div>
+
+      <div className="machine-ticker" aria-hidden="true"><span>RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—&nbsp;RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—</span></div>
+
+      <div className="machine-metrics">
+        <div className="metric metric-featured"><span>PRODUCTION<br />MINDSET</span><strong>BUILT<br />TO<br />RUN.</strong></div>
+        <div className="metric"><b>500+</b><span>TOOL CALLS<br />ORCHESTRATED</span></div>
+        <div className="metric"><b>90%</b><span>AGENT<br />ACCURACY</span></div>
+        <div className="metric"><b>06</b><span>RECENT<br />PUBLIC BUILDS</span></div>
+        <div className="metric agent-metric"><AgentsButton /></div>
+      </div>
+
+      <div className="signal-strip">
+        {highlights.slice(0, 3).map((item, index) => (
+          <div key={item.title} className="signal-line"><span>0{index + 1}</span><div><b>{item.title}</b><p>{item.description}</p></div></div>
         ))}
       </div>
     </header>

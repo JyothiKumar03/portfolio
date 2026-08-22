@@ -47,76 +47,54 @@
 }
 
 :root {
-  --radius: 0.95rem;
-  --background: #f7f7f5;
-  --foreground: #111111;
-  --card: #ffffff;
-  --card-foreground: #111111;
-  --popover: #ffffff;
-  --popover-foreground: #111111;
-  --primary: #e5484d;
-  --primary-foreground: #fff5f5;
-  --secondary: #f1f1f0;
-  --secondary-foreground: #111111;
-  --muted: #efefee;
-  --muted-foreground: #6a6a70;
-  --accent: #e5484d;
-  --accent-foreground: #fff5f5;
+  --font-space-grotesk: "Avenir Next", "Segoe UI", sans-serif;
+  --font-jetbrains-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --radius: 1.15rem;
+  --background: #f4f1eb;
+  --foreground: #141619;
+  --card: #fffdf8;
+  --card-foreground: #141619;
+  --popover: #fffdf8;
+  --popover-foreground: #141619;
+  --primary: #ee6242;
+  --primary-foreground: #160b08;
+  --secondary: #ece8e0;
+  --secondary-foreground: #141619;
+  --muted: #e9e5de;
+  --muted-foreground: #64615d;
+  --accent: #ee6242;
+  --accent-foreground: #160b08;
   --destructive: #e5484d;
-  --border: #e3e3e8;
-  --input: #e3e3e8;
-  --ring: #e5484d;
-  --chart-1: #e5484d;
-  --chart-2: #2b7bdf;
-  --chart-3: #21a179;
-  --chart-4: #f6a100;
-  --chart-5: #7a5af8;
-  --sidebar: #ffffff;
-  --sidebar-foreground: #111111;
-  --sidebar-primary: #e5484d;
-  --sidebar-primary-foreground: #fff5f5;
-  --sidebar-accent: #f1f1f0;
-  --sidebar-accent-foreground: #111111;
-  --sidebar-border: #e3e3e8;
-  --sidebar-ring: #e5484d;
-  --accent-glow: rgba(229, 72, 77, 0.18);
-  --grid-line: rgba(0, 0, 0, 0.06);
+  --border: #ded8ce;
+  --input: #ded8ce;
+  --ring: #ee6242;
+  --chart-1: #ee6242; --chart-2: #6a73ff; --chart-3: #26ad8a; --chart-4: #f6a100; --chart-5: #7a5af8;
+  --sidebar: #fffdf8; --sidebar-foreground: #141619; --sidebar-primary: #ee6242; --sidebar-primary-foreground: #160b08; --sidebar-accent: #ece8e0; --sidebar-accent-foreground: #141619; --sidebar-border: #ded8ce; --sidebar-ring: #ee6242;
+  --accent-glow: rgba(238, 98, 66, 0.2); --grid-line: rgba(17, 20, 26, 0.07);
 }
 
 .dark {
-  --background: #0b0b0c;
-  --foreground: #f5f5f5;
-  --card: #131316;
-  --card-foreground: #f5f5f5;
-  --popover: #141418;
-  --popover-foreground: #f5f5f5;
-  --primary: #e5484d;
-  --primary-foreground: #0b0b0c;
-  --secondary: #17171c;
-  --secondary-foreground: #f5f5f5;
-  --muted: #1b1b21;
-  --muted-foreground: #9a9aa3;
-  --accent: #e5484d;
-  --accent-foreground: #0b0b0c;
-  --destructive: #e5484d;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: rgba(229, 72, 77, 0.55);
-  --chart-1: #e5484d;
-  --chart-2: #2b7bdf;
-  --chart-3: #21a179;
-  --chart-4: #f6a100;
-  --chart-5: #7a5af8;
-  --sidebar: #131316;
-  --sidebar-foreground: #f5f5f5;
-  --sidebar-primary: #e5484d;
-  --sidebar-primary-foreground: #0b0b0c;
-  --sidebar-accent: #17171c;
-  --sidebar-accent-foreground: #f5f5f5;
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: rgba(229, 72, 77, 0.55);
-  --accent-glow: rgba(229, 72, 77, 0.25);
-  --grid-line: rgba(255, 255, 255, 0.06);
+  --background: #090b10;
+  --foreground: #f2f0e9;
+  --card: #11151d;
+  --card-foreground: #f2f0e9;
+  --popover: #11151d;
+  --popover-foreground: #f2f0e9;
+  --primary: #f26d4f;
+  --primary-foreground: #180c08;
+  --secondary: #171b25;
+  --secondary-foreground: #f2f0e9;
+  --muted: #171b25;
+  --muted-foreground: #aaa9ae;
+  --accent: #f26d4f;
+  --accent-foreground: #180c08;
+  --destructive: #e95858;
+  --border: rgba(244, 241, 235, 0.12);
+  --input: rgba(244, 241, 235, 0.12);
+  --ring: rgba(242, 109, 79, 0.55);
+  --chart-1: #f26d4f; --chart-2: #8a91ff; --chart-3: #36bf9a; --chart-4: #f4bc48; --chart-5: #b086ff;
+  --sidebar: #11151d; --sidebar-foreground: #f2f0e9; --sidebar-primary: #f26d4f; --sidebar-primary-foreground: #180c08; --sidebar-accent: #171b25; --sidebar-accent-foreground: #f2f0e9; --sidebar-border: rgba(244, 241, 235, 0.12); --sidebar-ring: rgba(242, 109, 79, 0.55);
+  --accent-glow: rgba(242, 109, 79, 0.25); --grid-line: rgba(244, 241, 235, 0.07);
 }
 
 @layer base {
@@ -129,10 +107,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-sans);
-    background-image:
-      radial-gradient(900px 600px at 10% -10%, var(--accent-glow), transparent 65%),
-      radial-gradient(700px 500px at 90% 10%, var(--accent-glow), transparent 70%),
-      linear-gradient(transparent, transparent);
+    background-image: radial-gradient(900px 600px at 5% -10%, var(--accent-glow), transparent 65%), radial-gradient(700px 500px at 95% 5%, rgba(108, 117, 255, 0.12), transparent 70%), linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: auto, auto, 72px 72px, 72px 72px;
     background-attachment: fixed;
   }
   ::selection {
@@ -143,7 +119,7 @@
 
 @layer components {
   .page-container {
-    @apply mx-auto w-full max-w-[90rem] px-4;
+    @apply mx-auto w-full max-w-[88rem] px-4;
   }
   .page-container-md {
     @apply mx-auto w-full max-w-7xl px-4;
@@ -156,16 +132,16 @@
   }
 
   .section-shell {
-    @apply border-t border-border/60 py-12;
+    @apply border-t border-border/60 py-14;
   }
   .section-title {
-    @apply mt-3 text-2xl font-semibold tracking-tight;
+    @apply mt-3 text-3xl font-semibold tracking-[-0.045em];
   }
   .page-title {
     @apply text-3xl font-semibold tracking-tight;
   }
   .hero-title {
-    @apply text-4xl font-semibold tracking-tight;
+    @apply text-4xl font-semibold tracking-[-0.05em];
   }
 
   .eyebrow {
@@ -176,19 +152,21 @@
   }
 
   .pill {
-    @apply rounded-full border border-border/60 px-3 py-1 text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground break-words;
+    @apply rounded-full border border-border/60 bg-background/30 px-3 py-1 text-[0.65rem] uppercase tracking-[0.14em] text-muted-foreground break-words;
   }
   .chip {
     @apply rounded-full border border-border/60 px-3 py-1 text-[0.65rem] text-muted-foreground break-words;
   }
 
   .surface-card {
-    @apply rounded-2xl border border-border/60 bg-card/80 p-5 shadow-sm;
+    @apply rounded-2xl border border-border/60 bg-card/80 p-5 shadow-[0_12px_32px_rgba(0,0,0,0.12)];
   }
 }
 
 @layer components {
-  @screen sm {
+  /* Tailwind v4 dropped @screen — these must be plain media queries or the
+     whole block is silently discarded (sm: 40rem, md: 48rem, lg: 64rem). */
+  @media (min-width: 40rem) {
     .page-container,
     .page-container-md,
     .page-container-sm,
@@ -224,7 +202,7 @@
     }
   }
 
-  @screen md {
+  @media (min-width: 48rem) {
     .page-container {
       @apply px-10;
     }
@@ -245,7 +223,7 @@
     }
   }
 
-  @screen lg {
+  @media (min-width: 64rem) {
     .hero-title {
       @apply text-6xl;
     }
@@ -256,6 +234,22 @@
   .text-balance {
     text-wrap: balance;
   }
+  .hero-contrast { color: transparent; -webkit-text-stroke: 1px color-mix(in srgb, var(--foreground) 75%, transparent); }
+  .hero-glow { position:absolute; border-radius:9999px; filter:blur(1px); pointer-events:none; }
+  .hero-glow-one { width:22rem; height:22rem; left:-12rem; top:4rem; background:radial-gradient(circle, rgba(242,109,79,.28), transparent 67%); }
+  .hero-glow-two { width:24rem; height:24rem; right:8%; top:0; background:radial-gradient(circle, rgba(110,117,255,.18), transparent 67%); }
+  .live-dot { @apply size-1.5 rounded-full bg-primary shadow-[0_0_12px_var(--primary)]; animation: pulse 2s cubic-bezier(.4,0,.6,1) infinite; }
+  .stat-number { @apply font-mono text-2xl font-bold tracking-[-0.08em] text-foreground sm:text-3xl; }
+  .stat-label { @apply mt-1 font-mono text-[10px] uppercase tracking-[0.12em] text-muted-foreground; }
+  .signal-card { @apply relative overflow-hidden rounded-2xl border border-border/70 bg-card/70 p-4 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-primary/45; }
+  .profile-orbit { position:absolute; border:1px dashed rgba(242,109,79,.38); border-radius:9999px; pointer-events:none; }
+  .profile-orbit-a { inset:-1.2rem; animation: spin 22s linear infinite; }
+  .profile-orbit-b { inset:-2.6rem; border-color:rgba(137,145,255,.25); animation: spin 32s linear infinite reverse; }
+  .project-grid { @apply grid gap-4 md:grid-cols-2 xl:grid-cols-3; }
+  .project-card { @apply relative overflow-hidden rounded-2xl border border-border/60 bg-card/80 p-5 transition duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_16px_46px_rgba(0,0,0,0.2)]; }
+  .project-card::after { content:""; position:absolute; inset:auto -30% -60% auto; width:14rem; height:14rem; border-radius:9999px; background:radial-gradient(circle, rgba(242,109,79,.12), transparent 68%); transition:transform .5s ease; }
+  .project-card:hover::after { transform:translate(-20%,-15%); }
+  .project-status { @apply inline-flex items-center gap-1.5 rounded-full border border-primary/25 bg-primary/10 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.1em] text-primary; }
   .surface-grid {
     background-image: linear-gradient(
         90deg,
@@ -272,3 +266,84 @@
     background-size: 28px 28px;
   }
 }
+
+/* Homepage as an AI systems interface rather than a conventional portfolio. */
+@layer components {
+  .machine-nav { @apply fixed inset-x-0 top-0 z-50 mx-auto flex h-16 max-w-[110rem] items-center justify-between border-b border-border/60 bg-background/75 px-4 backdrop-blur-xl sm:px-8; }
+  .machine-monogram { @apply flex items-center gap-1 font-mono text-base font-black tracking-[-.18em] text-foreground; }
+  .machine-monogram span { @apply text-primary; } .machine-monogram i { @apply h-4 w-px bg-border; }
+  .machine-nav-links { @apply hidden items-center gap-7 font-mono text-[11px] uppercase tracking-[.14em] text-muted-foreground md:flex; }
+  .machine-nav-links a { @apply transition hover:text-primary; }
+  .machine-nav-tools { @apply flex items-center gap-2; }
+  .machine-nav-tools > a, .machine-theme, .machine-menu { @apply inline-flex size-8 items-center justify-center rounded-none border border-border/70 bg-card/30 text-muted-foreground transition hover:border-primary/60 hover:text-primary; }
+  .machine-theme { @apply rounded-none border-border/70 bg-card/30 text-muted-foreground shadow-none hover:bg-transparent; }
+  .machine-menu { @apply md:hidden; }
+  .machine-mobile-links { @apply absolute left-0 right-0 top-16 grid border-b border-border bg-background p-5 font-mono text-xs uppercase tracking-widest text-muted-foreground md:hidden; }
+  .machine-mobile-links a { @apply border-b border-border/50 py-4 last:border-0 hover:text-primary; }
+
+  .machine-hero { @apply relative isolate min-h-[1050px] overflow-hidden border-b border-border/60 px-5 pb-12 pt-28 sm:px-10 lg:min-h-[970px] lg:px-16 lg:pt-32; }
+  .machine-hero::before { content:""; position:absolute; inset:0; background:radial-gradient(circle at 72% 30%, rgba(242,109,79,.18), transparent 20%),radial-gradient(circle at 15% 40%, rgba(135,141,255,.16), transparent 28%),repeating-linear-gradient(90deg,transparent 0,transparent calc(8.333% - 1px),rgba(255,255,255,.055) calc(8.333% - 1px),rgba(255,255,255,.055) 8.333%); pointer-events:none; }
+  .machine-noise { position:absolute; inset:0; opacity:.16; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E"); mix-blend-mode:soft-light; pointer-events:none; }
+  .hero-rail { @apply absolute bottom-0 left-0 top-16 z-10 hidden w-9 flex-col items-center border-r border-border/60 py-7 font-mono text-[9px] tracking-[.18em] text-muted-foreground lg:flex; writing-mode:vertical-rl; }
+  .hero-rail i { @apply my-5 h-12 w-px bg-primary/70; }
+  .machine-kicker { @apply relative z-10 inline-flex items-center gap-2 border border-primary/35 bg-primary/10 px-3 py-2 font-mono text-[10px] uppercase tracking-[.18em] text-primary; }
+  .machine-status { @apply absolute right-5 top-28 z-10 hidden font-mono text-[10px] tracking-[.18em] text-muted-foreground sm:block lg:right-16; }
+  .machine-status b { @apply ml-2 font-normal text-primary; } .machine-status span { @apply ml-1 text-primary; }
+  .machine-copy { @apply relative z-10 mt-16 max-w-[62rem] lg:ml-[8vw]; }
+  .manifest-label { @apply mb-4 max-w-[18rem] font-mono text-[11px] uppercase leading-[1.65] tracking-[.13em] text-muted-foreground; }
+  .machine-title { @apply relative mt-8 font-sans text-[clamp(4.25rem,11.5vw,12.25rem)] font-black leading-[.76] tracking-[-.105em] text-foreground; }
+  .machine-title span { @apply block; } .machine-title .outline-word { color:transparent; -webkit-text-stroke:1px rgba(242,240,233,.76); margin-left:clamp(0rem,7vw,7rem); }
+  .machine-title .accent-word { @apply mt-7 ml-[5%] font-mono text-[clamp(.8rem,1.5vw,1.35rem)] font-normal tracking-[.24em] text-primary; }
+  .machine-promise { @apply mt-10 flex max-w-xl gap-4 border-l border-primary pl-4 text-lg leading-relaxed text-muted-foreground; }
+  .machine-promise strong { @apply font-medium text-foreground; } .promise-mark { @apply mt-1 text-primary; }
+  .machine-actions { @apply mt-8 flex flex-wrap items-center gap-5; }
+  .text-action { @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[.12em] text-muted-foreground transition hover:text-primary; }
+  .operator-frame { @apply absolute right-[3.5%] top-[12.5rem] z-10 hidden h-[34rem] w-[27rem] -rotate-3 border border-primary/45 bg-card/70 p-3 shadow-[20px_22px_0_rgba(242,109,79,.11)] xl:block; }
+  .operator-frame::before { content:""; position:absolute; inset:-3rem; z-index:-1; background:conic-gradient(from 130deg,transparent 0 18%,rgba(242,109,79,.45) 18.2% 18.5%,transparent 18.7% 48%,rgba(126,136,255,.25) 48.2% 48.5%,transparent 48.7%); mask:radial-gradient(circle,transparent 52%,#000 52.2%); opacity:.8; animation:spin 18s linear infinite; }
+  .operator-portrait { @apply relative h-full overflow-hidden grayscale contrast-125; clip-path:polygon(0 3%,100% 0,97% 96%,4% 100%); }
+  .operator-portrait > div { height:100% !important; border:0; border-radius:0; } .operator-portrait img { object-position:58% center; }
+  .portrait-scan { @apply pointer-events-none absolute inset-x-4 top-0 h-px bg-primary/70 shadow-[0_0_16px_var(--primary)]; animation:scan 5s ease-in-out infinite; }
+  .frame-corner { @apply absolute z-20 size-10 border-primary; } .frame-corner-tl { @apply -left-2 -top-2 border-l-2 border-t-2; } .frame-corner-br { @apply -bottom-2 -right-2 border-b-2 border-r-2; }
+  .frame-label { @apply absolute z-20 font-mono text-[9px] tracking-[.18em] text-primary; } .frame-label-top { @apply -top-6 left-0; } .frame-label-side { @apply -right-5 bottom-11 [writing-mode:vertical-rl]; }
+  .portrait-note { @apply absolute bottom-7 left-7 right-7 z-20 flex items-center justify-between border border-white/15 bg-black/75 px-4 py-3 backdrop-blur; }
+  .portrait-note span { @apply flex items-center gap-1.5 font-mono text-[9px] tracking-[.16em] text-primary; } .portrait-note strong { @apply text-sm font-medium; }
+  /* Full-bleed but in normal flow: an absolute offset cannot clear both the CTA
+     row and the metrics grid at every width, so it collided with one or the other. */
+  .machine-ticker { @apply relative z-0 mt-14 overflow-hidden border-y border-border/60 bg-foreground py-3 text-background; width:100vw; margin-left:calc(50% - 50vw); transform:rotate(-2deg) scale(1.04); }
+  .machine-ticker span { display:block; width:max-content; font-family:var(--font-jetbrains-mono); font-size:11px; font-weight:700; letter-spacing:.2em; animation:marquee 22s linear infinite; }
+  .machine-metrics { @apply relative z-20 mt-14 grid border border-border/70 bg-background/80 sm:grid-cols-2 lg:ml-[8vw] lg:mr-[4vw] lg:grid-cols-5; }
+  .metric { @apply flex min-h-28 flex-col justify-between border-b border-border/70 p-4 sm:border-r lg:border-b-0; } .metric:last-child { @apply border-r-0; }
+  .metric b { @apply font-mono text-4xl font-bold tracking-[-.1em] text-foreground; } .metric > span { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.15em] text-muted-foreground; }
+  .metric-featured { @apply bg-primary text-primary-foreground; } .metric-featured span { @apply text-[9px] font-mono tracking-[.16em]; } .metric-featured strong { @apply mt-3 text-2xl font-black leading-[.82] tracking-[-.08em]; }
+  .agent-metric { @apply p-0; } .agent-metric a { @apply h-full rounded-none border-0 bg-transparent px-4 shadow-none hover:bg-primary/10; }
+  .signal-strip { @apply relative z-10 mt-4 grid border-t border-border/60 md:grid-cols-3; }
+  .signal-line { @apply flex gap-4 border-b border-border/60 py-5 pr-6 md:border-r md:px-5 md:last:border-r-0; } .signal-line > span { @apply font-mono text-xs text-primary; } .signal-line b { @apply text-sm font-semibold; } .signal-line p { @apply mt-1 text-xs leading-relaxed text-muted-foreground; }
+
+  .section-shell { @apply relative border-t-0 py-20 md:py-28; } .section-machine-heading { @apply flex items-start border-y border-border/60 py-5; } .section-index { @apply mr-5 font-mono text-sm text-primary sm:mr-12; }
+  .section-machine-heading p { @apply font-mono text-[10px] uppercase tracking-[.18em] text-muted-foreground; } .section-machine-heading h2 { @apply mt-2 text-4xl font-black tracking-[-.075em] sm:text-6xl; } .section-machine-heading h2 span { @apply text-primary; }
+  .section-machine-body { @apply mt-7; }
+  .career-log { @apply border-t border-border/60; } .career-entry { @apply grid gap-4 border-b border-border/60 py-7 transition hover:bg-card/60 md:grid-cols-[4rem_1.2fr_.7fr_1.7fr] md:gap-6; }
+  .career-count, .career-meta { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.14em] text-primary; } .career-company h3 { @apply text-xl font-semibold tracking-tight; } .career-company p { @apply mt-1 text-sm text-muted-foreground; }
+  .career-entry ul { @apply space-y-2 text-sm leading-relaxed text-muted-foreground; } .career-entry li { @apply flex gap-2 before:text-primary before:content-['↗']; }
+  .project-grid { @apply grid gap-px overflow-hidden border border-border/70 bg-border md:grid-cols-2 xl:grid-cols-3; } .project-card { @apply min-h-80 rounded-none border-0 bg-background p-6 shadow-none hover:translate-y-0 hover:bg-card hover:shadow-none; }
+  .project-card::before { content:""; position:absolute; left:0; top:0; height:3px; width:0; background:var(--primary); transition:width .5s ease; } .project-card:hover::before { width:100%; } .project-card::after { opacity:0; transition:opacity .35s ease; } .project-card:hover::after { opacity:1; }
+  /* Shared spec-sheet rows: dense, hairline-separated, full-width. Sparse content
+     inside big rounded cards left most of the row empty at desktop widths. */
+  .spec-log { @apply border-t border-border/60; }
+  .spec-row { @apply grid gap-3 border-b border-border/60 py-6 md:gap-6; }
+  .skill-row { @apply md:grid-cols-[4rem_13rem_1fr] md:items-center; }
+  .tier-row { @apply md:grid-cols-[4rem_15rem_1fr] md:items-baseline; }
+  .post-row { @apply transition hover:bg-card/60 md:grid-cols-[4rem_1.3fr_.6fr_1.6fr] md:items-baseline; }
+  .spec-index { @apply font-mono text-[10px] uppercase tracking-[.14em] text-primary; }
+  .spec-name { @apply flex items-center gap-2 text-base font-semibold tracking-tight text-foreground; }
+  .spec-meta { @apply font-mono text-[10px] uppercase leading-relaxed tracking-[.14em] text-primary; }
+  .spec-body { @apply text-sm leading-relaxed text-muted-foreground; }
+  .spec-chips { @apply flex flex-wrap gap-2; }
+
+  .project-card-1 { @apply bg-primary text-primary-foreground; } .project-card-1 h3, .project-card-1 p { color:inherit !important; } .project-card-1 .pill, .project-card-1 .project-status { border-color:rgba(24,12,8,.34); background:rgba(24,12,8,.08); color:rgba(24,12,8,.8); } .project-card-1 .project-status { background:rgba(24,12,8,.12); }
+}
+
+@keyframes scan { 0%,100%{transform:translateY(0);opacity:0} 15%,75%{opacity:1} 50%{transform:translateY(33rem)} }
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@media (max-width:1279px) { .machine-hero { min-height:1050px; } }
+@media (max-width:639px) { .machine-hero { min-height:970px;padding-top:7rem; } .machine-copy { margin-top:4rem; } .machine-title .outline-word,.machine-title .accent-word { margin-left:0; } .machine-title .accent-word { margin-top:1.5rem; } .machine-promise { font-size:1rem; } .machine-ticker { margin-top:3rem; } .machine-metrics { margin-top:3rem; } .metric { min-height:8.5rem; } .metric-featured,.agent-metric { grid-column:span 2; } .signal-strip { display:none; } }

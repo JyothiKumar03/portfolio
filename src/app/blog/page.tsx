@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft, BookOpenText, Mail } from "lucide-react"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
 import { Footer } from "@/components/footer"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -20,51 +20,47 @@ export default function BlogPage() {
           >
             <ArrowLeft className="size-3" /> Back home
           </Link>
-          <div className="mt-6 flex items-center gap-3">
-            <BookOpenText className="size-6 text-foreground" />
-            <p className="eyebrow">Writing</p>
-          </div>
+          <p className="eyebrow mt-6">Writing</p>
           <h1 className="page-title mt-4 text-balance">Notes on GenAI systems</h1>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
             Field notes from shipping, updated with 2025-2026 ecosystem signals.
           </p>
         </div>
 
-        <div className="mt-12 space-y-6">
-          {posts.map((post) => (
+        <div className="spec-log mt-12">
+          {posts.map((post, i) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="surface-card group block transition hover:-translate-y-1 hover:border-foreground/20"
+              className="spec-row post-row group"
             >
-              <div className="flex flex-col gap-2">
-                <h2 className="min-w-0 text-xl font-semibold text-foreground text-balance">
-                  {post.title}
-                </h2>
-                <p className="eyebrow">
-                  {post.publishedAt} · {post.readTime}
-                </p>
-              </div>
-              <p className="mt-3 text-sm text-muted-foreground">{post.summary}</p>
+              <span className="spec-index">{String(i + 1).padStart(2, "0")}</span>
+              <h2 className="spec-name">
+                {post.title}
+                <ArrowUpRight className="size-4 shrink-0 text-primary opacity-0 transition group-hover:opacity-100" />
+              </h2>
+              <p className="spec-meta">
+                {post.publishedAt}
+                <br />
+                {post.readTime}
+              </p>
+              <p className="spec-body">{post.summary}</p>
             </Link>
           ))}
         </div>
 
-        <div className="surface-card mt-12">
-          <div className="flex items-center gap-3">
-            <Mail className="size-5 text-foreground" />
+        <div className="mt-14 flex flex-col gap-4 border-y border-border/60 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <div>
             <p className="text-base font-semibold text-foreground">
               Want a topic covered sooner?
             </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Send a note and I will prioritize it.
+            </p>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Send a note and I will prioritize it.
-          </p>
-          <div className="mt-4">
-            <Button asChild>
-              <a href={`mailto:${site.email}`}>Request a post</a>
-            </Button>
-          </div>
+          <Button asChild>
+            <a href={`mailto:${site.email}`}>Request a post</a>
+          </Button>
         </div>
 
         <Footer />

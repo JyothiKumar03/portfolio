@@ -11,7 +11,7 @@ type ThemeToggleProps = {
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
-  const { theme, toggle } = useTheme()
+  const { toggle } = useTheme()
 
   return (
     <Button
@@ -24,11 +24,11 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
         className
       )}
     >
-      {theme === "dark" ? (
-        <Sun className="size-4" />
-      ) : (
-        <Moon className="size-4" />
-      )}
+      {/* The active theme lives in localStorage, so rendering the icon from
+          React state hydrates mismatched. The pre-hydration script already put
+          `.dark` on <html>, so let CSS pick the icon instead. */}
+      <Sun className="hidden size-4 dark:block" />
+      <Moon className="size-4 dark:hidden" />
     </Button>
   )
 }
