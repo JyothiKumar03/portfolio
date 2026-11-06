@@ -1,108 +1,94 @@
-import Link from "next/link"
-import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import type { Metadata } from "next"
+import type { CSSProperties } from "react"
 
-import { Footer } from "@/components/footer"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { Button } from "@/components/ui/button"
-import { projects, site } from "@/data/content"
+import { ProjectCard } from "@/components/project-card"
+import { SiteClosing } from "@/components/site-closing"
+import { SiteHeader } from "@/components/site-header"
+import { projects, type Project } from "@/data/content"
+import { featuredSlugs } from "@/data/project-cards"
+
+export const metadata: Metadata = {
+  title: "Projects — Jyothi Kumar",
+  description: "Claude Code skills, agents, developer tools and earlier full-stack work by Jyothi Kumar.",
+}
+
+// The three featured projects that are Claude Code skills or developer tools.
+// Every other featured project is an agent.
+const skillSlugs = ["just-jev-it", "agent-bridge", "agent-receipts"]
 
 export default function ProjectsPage() {
-  return (
-    <div className="min-h-screen">
-      <main className="page-container-md pb-16">
-        <div className="relative pt-14 md:pt-20">
-          <div className="absolute right-0 top-4 md:top-6">
-            <ThemeToggle />
-          </div>
-          <Link
-            href="/"
-            className="eyebrow inline-flex items-center gap-2 transition hover:text-foreground"
-          >
-            <ArrowLeft className="size-3" /> Back home
-          </Link>
-          <p className="eyebrow mt-6">Projects</p>
-          <h1 className="page-title mt-4 text-balance">Recent work, deeper cuts</h1>
-          <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
-            Detailed breakdowns of the systems, outcomes, and reliability patterns
-            I ship.
-          </p>
-        </div>
+  const featured = featuredSlugs.flatMap((slug): Project[] => {
+    const project = projects.find((p) => p.slug === slug)
+    return project ? [project] : []
+  })
+  const skills = featured.filter((p) => skillSlugs.includes(p.slug))
+  const agents = featured.filter((p) => !skillSlugs.includes(p.slug))
+  const earlier = projects.filter((p) => !(featuredSlugs as readonly string[]).includes(p.slug))
 
-        <div className="mt-12 space-y-8">
-          {projects.map((project) => (
-            <section
-              key={project.slug}
-              className="surface-card"
-            >
-              <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                <div>
-                  <h2 className="min-w-0 text-xl font-semibold text-foreground text-balance sm:text-2xl">
-                    {project.name}
-                  </h2>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {project.summary}
-                  </p>
-                </div>
-                <div className="flex shrink-0 flex-wrap gap-2">
-                  <Button variant="outline" size="sm" asChild>
-                    <Link href={`/projects/${project.slug}`}>
-                      View details <ArrowUpRight className="size-3" />
-                    </Link>
-                  </Button>
-                  {project.link ? (
-                    <Button variant="ghost" size="sm" asChild>
-                      <a href={project.link} target="_blank" rel="noreferrer">
-                        External link <ArrowUpRight className="size-3" />
-                      </a>
-                    </Button>
-                  ) : null}
-                </div>
+  return (
+    <>
+      <SiteHeader />
+      <main>
+        <section className="section proj-intro">
+          <div className="wrap">
+            <div className="grid">
+              <div className="lg:col-span-7">
+                <p className="t-small">Projects</p>
+                <h1 className="h1">Everything I&apos;ve built</h1>
+                <p className="lead">
+                  {projects.length} projects: Claude Code skills, agents, developer tools and earlier full-stack work.
+                </p>
               </div>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.highlights.map((highlight) => (
-                  <span key={highlight} className="pill">
-                    {highlight}
-                  </span>
+              <div className="lg:col-start-9 lg:col-span-4 lg:self-end">
+                <ul className="rows proj-fine proj-index">
+                  <li>
+                    <span className="rows__name">Skills and tools</span>
+                    <span className="rows__value">{skills.length}</span>
+                  </li>
+                  <li>
+                    <span className="rows__name">Agents</span>
+                    <span className="rows__value">{agents.length}</span>
+                  </li>
+                  <li>
+                    <span className="rows__name">Earlier builds</span>
+                    <span className="rows__value">{earlier.length}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" style={{ "--h": 2 } as CSSProperties}>
+          <div className="wrap">
+            <h2 className="h2 proj-h2">Agents and developer tools</h2>
+            <div className="grid proj-cards">
+              {featured.map((project) => (
+                <ProjectCard key={project.slug} project={project} className="lg:col-span-4" />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="wrap">
+            <div className="grid">
+              <div className="lg:col-span-4">
+                <h2 className="h2">Earlier builds</h2>
+                <p className="t-body muted proj-earlier-note">
+                  Full-stack, cloud and ML work from before the agent era.
+                </p>
+              </div>
+              <div className="lg:col-start-6 lg:col-span-7 proj-list">
+                {earlier.map((project) => (
+                  <ProjectCard key={project.slug} project={project} variant="row" />
                 ))}
               </div>
-              <div className="mt-6 grid gap-6 md:grid-cols-3">
-                <div>
-                  <p className="eyebrow">Problem</p>
-                  <p className="mt-2 text-sm text-foreground">
-                    {project.problem}
-                  </p>
-                </div>
-                <div>
-                  <p className="eyebrow">Approach</p>
-                  <p className="mt-2 text-sm text-foreground">
-                    {project.approach}
-                  </p>
-                </div>
-                <div>
-                  <p className="eyebrow">Value</p>
-                  <p className="mt-2 text-sm text-foreground">{project.value}</p>
-                </div>
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <div className="surface-card mt-12">
-          <p className="text-base font-semibold text-foreground sm:text-lg">
-            Want a custom GenAI system built end-to-end?
-          </p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Reach out and I will scope it fast, then ship with reliability in mind.
-          </p>
-          <div className="mt-4">
-            <Button asChild>
-              <a href={`mailto:${site.email}`}>Start a project</a>
-            </Button>
+            </div>
           </div>
-        </div>
-
-        <Footer />
+        </section>
       </main>
-    </div>
+      <SiteClosing />
+    </>
   )
 }

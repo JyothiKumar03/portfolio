@@ -1,0 +1,83 @@
+/* projects: archive (/projects) and project detail (/projects/[slug]).
+   Layout comes from the shared .wrap, .grid, .section and .rows system in
+   globals.css. This file holds only the spacing and the few pieces that are
+   specific to these two pages. Prefixes: proj- (archive), pd- (detail). */
+
+/* list rows that carry names only: 16px, regular weight */
+.proj-fine .rows__name { font-size: 16px; font-weight: 400; }
+
+/* ---------- archive: intro ---------- */
+.proj-intro { padding-top: 48px; }
+.proj-intro .h1 { margin-top: 16px; }
+.proj-intro .lead { margin-top: 24px; }
+.proj-index { margin-top: 0; }
+@media (max-width: 1023px) { .proj-index { margin-top: 40px; } }
+
+/* ---------- archive: featured agents and tools ---------- */
+.proj-h2 { margin-bottom: 48px; }
+@media (max-width: 639px) { .proj-h2 { margin-bottom: 32px; } }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .proj-cards > * { grid-column: span 6; }
+}
+
+/* ---------- archive: earlier builds ---------- */
+.proj-earlier-note { margin-top: 16px; max-width: 34ch; }
+.proj-list { border-top: 1px solid var(--line); }
+@media (max-width: 1023px) { .proj-list { margin-top: 32px; } }
+
+/* ---------- detail: header ---------- */
+.pd-head { padding-top: 48px; }
+@media (min-width: 1024px) {
+  .pd-head { min-height: calc(100svh - var(--nav)); }
+}
+.pd-kind { margin-top: 32px; }
+.pd-title { margin-top: 12px; }
+.pd-summary { margin-top: 24px; }
+.pd-actions { margin-top: 32px; }
+.pd-highlights { margin-top: 40px; }
+
+/* the cover fills the right column; a fixed height keeps the header on one screen */
+.pd-cover {
+  height: min(640px, calc(100svh - var(--nav) - 168px));
+  min-height: 420px;
+}
+@media (max-width: 639px) {
+  .pd-cover { height: 320px; min-height: 0; }
+}
+
+/* no cover: a card holding the stack */
+.pd-stack-card { min-height: 420px; }
+.pd-stack-card .t-label { display: block; }
+.pd-stack-card .pd-chips { margin-top: 20px; }
+
+/* ---------- detail: story ---------- */
+.pd-story > div + div { margin-top: 48px; }
+.pd-story .h3 { margin-bottom: 16px; }
+.pd-body { font-size: 18px; line-height: 1.6; color: var(--text); max-width: 60ch; }
+.pd-snapshot { margin-top: 12px; }
+
+/* ---------- detail: three columns ---------- */
+.pd-col .h3 { margin-bottom: 24px; }
+.pd-role { margin-top: 28px; }
+
+.pd-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.pd-role-chips { margin-top: 12px; }
+
+.pd-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  max-width: 100%;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  line-height: 1.3;
+  color: var(--ink);
+}
+.pd-chip--icon { padding: 0 12px 0 4px; }
+
+/* roadmap, under the three columns */
+.pd-next { margin-top: 64px; }
+.pd-next-list { margin-top: 20px; }
