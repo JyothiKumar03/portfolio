@@ -2,7 +2,7 @@
 
 > "Gaslighting LLMs | Translating Business <-> Tech | addressing curiosity with clarity | first principles"
 
-Software Engineer and AI Engineer. Ships production-grade agentic systems. Works from first principles, not playbooks.
+Software Engineer and AI Engineer. Ships production-grade agentic systems. Works from first principles, not playbooks. Builds Claude Code skills, MCP servers and agent harnesses.
 
 ## The short version
 
@@ -10,7 +10,7 @@ Jyothi builds AI agents that do real work. Not demos. The kind that run for hour
 
 He thinks from the problem backward. Finds the gap, maps it to what's actually buildable, and ships. He'll wear whatever hat the problem needs: AI engineer, full-stack dev, product thinker, eval designer.
 
-Currently at ProdGain (Hyderabad), building GenAI products end-to-end for clients.
+Currently driving AI solutions at InspireLabs. Before that, ProdGain (Hyderabad, Jun 2024 - Feb 2026), building GenAI products end-to-end for clients. Available for AI builds.
 
 ## Contact
 
@@ -18,7 +18,7 @@ Currently at ProdGain (Hyderabad), building GenAI products end-to-end for client
 - GitHub: https://github.com/JyothiKumar03
 - LinkedIn: https://www.linkedin.com/in/jyothikumard/
 - Twitter/X: https://x.com/jyothikumar003
-- Location: Hyderabad, India (open to remote or relocation)
+- Location: Hyderabad, India (available for AI builds)
 - Organization: ProdGainAI
 
 ## How he thinks
@@ -31,8 +31,13 @@ He bridges both sides: translates business intent into technical architecture, a
 
 ## Work
 
+### InspireLabs — AI Solutions
+Present
+
+Driving AI solutions.
+
 ### ProdGain — Software Engineer (AI / Full-stack)
-Hyderabad | Jun 2024 - Present
+Hyderabad | Jun 2024 - Feb 2026
 
 What he actually built:
 
@@ -41,6 +46,7 @@ What he actually built:
 - 70%+ LLM performance improvement across multiple client builds through prompting, context architecture, RAG, and fine-tuning. Measured, not estimated.
 - Multi-LLM systems integrating OpenAI, Anthropic, DeepSeek, Gemini with project-specific eval frameworks that catch regressions before users do.
 - Took scoping sessions, client calls, architecture decisions, and release coordination. Full ownership, not just tickets.
+- Set up CI/CD, AI observability pipelines, alerting, and training and self-training loops for agent-specific use cases.
 
 ### ADP — Software Developer Intern
 Hyderabad | Jul 2023 - Oct 2023
@@ -48,7 +54,7 @@ Hyderabad | Jul 2023 - Oct 2023
 Backend routes, SQL automation, internal tooling. First real production codebase. Learned to read before writing.
 
 ### Brainlox — Full Stack Engineer (Remote)
-2023
+Feb 2023 - Mar 2023
 
 React.js UI pages integrated with AWS. Remote, async, shipped.
 
@@ -127,6 +133,18 @@ Decodes handwritten doctor prescriptions into readable text using Gemini Vision 
 ### AWS DNS Dashboard
 Centralized DNS monitoring with MERN + AWS SDK. Full CRUD, audit trail, and latency-aware refresh.
 
+## Recent builds
+
+- just-jev-it — Finds LLM calls that only decide, and moves them to Jev. Claude Code skill. https://github.com/JyothiKumar03/just-jev-it
+- agent-spawnkit — Hands routine work from your main agent to cheaper workers. MCP server. https://github.com/JyothiKumar03/agent-bridge
+- trace-ur-token — Shows where your coding agents spent their tokens. CLI + dashboard. https://github.com/JyothiKumar03/agent-receipts
+- LiveSlides — Presents a deck from your script and takes questions mid-talk. Voice agent. https://github.com/JyothiKumar03/live-slides
+- Voice Tutor — Teaches Spanish through spoken conversation in five modes. Voice agent. https://github.com/JyothiKumar03/speech-ai-agent
+- Aarogya — Answers insurance questions and escalates the rest to tickets. Support agent. https://github.com/JyothiKumar03/Aarogya---Medical-customer-support
+- Merchant Underwriting Agent — Scores merchants and sends credit offers over WhatsApp. Decision workflow. https://github.com/JyothiKumar03/merchant-underwriting-agent
+- Research Paper Judge — Reviews arXiv papers with six agents in two waves. Multi-agent pipeline. https://github.com/JyothiKumar03/research-paper-judge
+- Critic Agent — Designs a rubric first, then scores your work against it. Evaluation agent. https://github.com/JyothiKumar03/critic-agent
+
 ## Technical Stack
 
 AI/GenAI: LLMs (OpenAI, Anthropic, Gemini, DeepSeek), context engineering, prompt engineering, RAG, fine-tuning, agentic systems, eval frameworks, LangChain, Vercel AI SDK
@@ -143,11 +161,13 @@ Languages: Python, TypeScript, JavaScript, C/C++, Java, SQL
 
 ## Writing
 
-He writes about what actually works in production, not theory.
+He writes about what actually works in production, not theory. Newest first.
 
-- "Reliability-first LLM systems" - evals, fallbacks, and release guardrails for systems that survive real traffic
-- "Context engineering playbook" - structuring inputs, retrieval, and constraints so outputs stay stable before touching a prompt
-- "Agentic workflows at scale" - what changes when an agent needs to survive hundreds of tool calls and still produce trustworthy output
+- "Just Jev it: moving agent decisions off the LLM" - /blog/just-jev-it
+- "One agent, many skills, a few niche agents: the harness I'd bet on" - /blog/one-agent-skills-niche-agents
+- "Reliability-first LLM systems: what actually works in production" - /blog/reliability-first-llm-systems
+- "Context engineering playbook I use before touching prompts" - /blog/context-engineering-playbook
+- "Agentic workflows at scale: from demo loops to dependable systems" - /blog/agentic-workflows-at-scale
 
 ## What he's looking for
 

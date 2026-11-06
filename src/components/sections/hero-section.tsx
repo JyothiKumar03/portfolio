@@ -1,63 +1,74 @@
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowDownRight, ArrowUpRight, Github, Sparkles } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
-import { AgentsButton } from "@/components/agents-modal"
-import { Button } from "@/components/ui/button"
-import { ProfilePhoto } from "@/components/profile-photo"
-import { highlights, site } from "@/data/content"
+import { proof, site } from "@/data/content"
 
+// The dealt "split" hero: text on columns 1-5, the real photograph on 7-12.
 export function HeroSection() {
   return (
-    <header className="machine-hero">
-      <div className="machine-noise" />
-      <aside className="hero-rail" aria-hidden="true">
-        <span>JK/03</span><i /><span>HYD · IN</span><i /><span>EST. 2022</span>
-      </aside>
+    <section id="top" className="section hero">
+      <div className="wrap">
+        <div className="grid hero-grid">
+          <div className="lg:col-span-5 hero-text">
+            <div className="hero-top">
+              <p className="t-small">Jyothi Kumar · AI engineer, Hyderabad · available for AI builds</p>
 
-      <div className="machine-kicker"><span className="live-dot" /> OPERATING SYSTEM / AI + PRODUCT</div>
-      <div className="machine-status">STATUS <b>ONLINE</b> <span>●</span></div>
+              <h1 className="h1 hero-title">
+                I build AI agents that <span className="accent-word">do the work.</span>
+              </h1>
 
-      <div className="machine-copy">
-        <p className="manifest-label">Independent engineer for AI systems<br />that have to hold up in production.</p>
-        <h1 className="machine-title" aria-label="Jyothi Kumar, AI systems engineer">
-          <span>JYOTHI</span>
-          <span className="outline-word">KUMAR</span>
-          <span className="accent-word">/ AI SYSTEMS</span>
-        </h1>
-        <div className="machine-promise">
-          <span className="promise-mark">✳</span>
-          <p>I design agents, context engines, and product workflows with one rule: <strong>they must be dependable in the real world.</strong></p>
+              <p className="lead hero-lead">
+                Not demos. Production agents for research, sales and GTM teams: one orchestrator, the
+                Claude Code skills it loads on demand, and narrow workers for the heavy lifting.
+              </p>
+
+              <div className="btn-row hero-actions">
+                <a className="btn btn--primary" href={"mailto:" + site.email}>
+                  Email me <ArrowRight className="m-arrow size-4" aria-hidden="true" />
+                </a>
+                <Link className="btn btn--secondary" href="#work">
+                  See the work
+                </Link>
+              </div>
+            </div>
+
+            <div className="hero-foot">
+              <dl className="hero-proof">
+                {proof.map((item) => (
+                  <div key={item.figure} className="hero-proof-item">
+                    <dt className="hero-proof-figure">{item.figure}</dt>
+                    <dd className="hero-proof-text">{item.text}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="t-small hero-role">Driving AI solutions at InspireLabs · previously software engineer, AI at ProdGain</p>
+            </div>
+          </div>
+
+          <div className="lg:col-start-7 lg:col-span-6 hero-media">
+            <div className="frame hero-photo">
+              <Image
+                src="/images/profile.jpeg"
+                alt="Jyothi Kumar Dummala"
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 628px"
+                className="object-cover"
+              />
+
+              <div className="hero-card">
+                <p className="t-label hero-card-label">
+                  <span className="hero-dot" aria-hidden="true" />
+                  Status
+                </p>
+                <p className="hero-card-title">Available for AI builds</p>
+                <p className="t-small">Agents, Claude Code skills and automations</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="machine-actions">
-          <Button size="lg" asChild><Link href="#projects">Enter project archive <ArrowDownRight className="size-4" /></Link></Button>
-          <a className="text-action" href={site.social.github} target="_blank" rel="noreferrer"><Github className="size-4" /> GitHub / 79 repositories <ArrowUpRight className="size-3" /></a>
-        </div>
       </div>
-
-      <div className="operator-frame">
-        <div className="frame-corner frame-corner-tl" /><div className="frame-corner frame-corner-br" />
-        <p className="frame-label frame-label-top">OPERATOR // J.KUMAR</p>
-        <div className="operator-portrait"><ProfilePhoto /></div>
-        <div className="portrait-scan" />
-        <p className="frame-label frame-label-side">DEPLOY / MEASURE / ITERATE</p>
-        <div className="portrait-note"><span><Sparkles className="size-3" /> CURRENT SIGNAL</span><strong>Agents with receipts</strong></div>
-      </div>
-
-      <div className="machine-ticker" aria-hidden="true"><span>RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—&nbsp;RAG&nbsp;—&nbsp;EVALS&nbsp;—&nbsp;VOICE&nbsp;—&nbsp;ORCHESTRATION&nbsp;—&nbsp;RELIABILITY&nbsp;—</span></div>
-
-      <div className="machine-metrics">
-        <div className="metric metric-featured"><span>PRODUCTION<br />MINDSET</span><strong>BUILT<br />TO<br />RUN.</strong></div>
-        <div className="metric"><b>500+</b><span>TOOL CALLS<br />ORCHESTRATED</span></div>
-        <div className="metric"><b>90%</b><span>AGENT<br />ACCURACY</span></div>
-        <div className="metric"><b>06</b><span>RECENT<br />PUBLIC BUILDS</span></div>
-        <div className="metric agent-metric"><AgentsButton /></div>
-      </div>
-
-      <div className="signal-strip">
-        {highlights.slice(0, 3).map((item, index) => (
-          <div key={item.title} className="signal-line"><span>0{index + 1}</span><div><b>{item.title}</b><p>{item.description}</p></div></div>
-        ))}
-      </div>
-    </header>
+    </section>
   )
 }
