@@ -138,7 +138,6 @@ Centralized DNS monitoring with MERN + AWS SDK. Full CRUD, audit trail, and late
 - just-jev-it — Finds LLM calls that only decide, and moves them to Jev. Claude Code skill. https://github.com/JyothiKumar03/just-jev-it
 - agent-spawnkit — Hands routine work from your main agent to cheaper workers. MCP server. https://github.com/JyothiKumar03/agent-bridge
 - trace-ur-token — Shows where your coding agents spent their tokens. CLI + dashboard. https://github.com/JyothiKumar03/agent-receipts
-- LiveSlides — Presents a deck from your script and takes questions mid-talk. Voice agent. https://github.com/JyothiKumar03/live-slides
 - Voice Tutor — Teaches Spanish through spoken conversation in five modes. Voice agent. https://github.com/JyothiKumar03/speech-ai-agent
 - Aarogya — Answers insurance questions and escalates the rest to tickets. Support agent. https://github.com/JyothiKumar03/Aarogya---Medical-customer-support
 - Merchant Underwriting Agent — Scores merchants and sends credit offers over WhatsApp. Decision workflow. https://github.com/JyothiKumar03/merchant-underwriting-agent

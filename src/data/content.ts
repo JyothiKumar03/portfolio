@@ -125,7 +125,7 @@ export type Project = {
   link: string;
 };
 
-export const projects: Project[] = [
+const allProjects: Project[] = [
   {
     slug: "aarogya-medical-support",
     name: "Aarogya — Medical Customer Support",
@@ -661,6 +661,12 @@ export const projects: Project[] = [
     link: "https://github.com/JyothiKumar03/merchant-underwriting-agent",
   },
 ] as const;
+
+const hiddenProjectSlugs = ["live-slides"];
+
+export const projects: Project[] = allProjects.filter(
+  (project) => !hiddenProjectSlugs.includes(project.slug),
+);
 
 export const projectSlugs = projects.map((project) => project.slug);
 
